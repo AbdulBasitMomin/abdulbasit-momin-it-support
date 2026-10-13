@@ -1470,5 +1470,20 @@ export function buildWorld(q) {
     certifications: certsZone(q),
     contact: finaleZone(q)
   };
+  /* Real shadows need casters and receivers flagged. Walk every zone once:
+     solid meshes cast and receive; sprites, lines, points, glow planes and
+     transparent FX are skipped so they never punch holes in the shadow map. */
+  for (const id in zones) {
+    zones[id].traverse((o) => {
+      if (!o.isMesh) return;
+      const m = o.material;
+      if (!m) return;
+      if (o.isSprite || o.isPoints || o.isLine) return;
+      if (m.transparent && m.opacity < 0.85) return;
+      if (m.blending === THREE.AdditiveBlending) return;
+      o.castShadow = true;
+      o.receiveShadow = true;
+    });
+  }
   return zones;
 }
