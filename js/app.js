@@ -202,9 +202,9 @@ function start() {
   composer.addPass(new RenderPass(scene, camera));
   const bloom = new UnrealBloomPass(
     new THREE.Vector2(window.innerWidth, window.innerHeight),
-    0.32,   // strength
-    0.65,   // radius
-    0.82    // threshold — only the hottest pixels bloom
+    0.12,   // strength — whisper, not shout; the scene has its own glows
+    0.5,    // radius
+    0.92    // threshold — only near-white highlights bloom
   );
   if (isMobile) bloom.resolution.set(window.innerWidth / 2, window.innerHeight / 2);
   composer.addPass(bloom);
