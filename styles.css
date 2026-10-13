@@ -7,15 +7,15 @@
   --bg:#050810;
   --bg-soft:#0a1020;
   --ink:#eef2f8;
-  --ink-dim:#9aa7bd;
-  --ink-faint:#67748c;
+  --ink-dim:#c4cfe0;
+  --ink-faint:#94a2b9;
   --blue:#2f81f7;
   --blue-soft:#6ea8ff;
   --amber:#f5a623;
   --amber-soft:#ffc96b;
-  --line:rgba(140,165,210,.16);
-  --card:rgba(10,16,30,.62);
-  --card-brd:rgba(110,168,255,.22);
+  --line:rgba(150,175,215,.26);
+  --card:rgba(6,10,20,.9);
+  --card-brd:rgba(120,172,255,.3);
   --shadow:0 24px 60px -24px rgba(0,0,0,.9);
   --display:"Space Grotesk",system-ui,sans-serif;
   --body:"Inter",system-ui,-apple-system,sans-serif;
@@ -60,10 +60,6 @@ a{color:inherit}
 }
 body.no-webgl #stage{display:none}
 
-#grain{
-  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
-}
 #vignette{
   position:fixed;inset:0;z-index:2;pointer-events:none;
   box-shadow:inset 0 0 200px 70px rgba(3,5,12,.6);
@@ -148,7 +144,6 @@ body.static-mode #flash{display:none}
 }
 .hero-name{
   font-size:clamp(44px,9.4vw,124px);line-height:.93;text-transform:uppercase;letter-spacing:-.035em;
-  text-shadow:0 0 44px rgba(47,129,247,.42),0 0 110px rgba(47,129,247,.18);
 }
 .hero-name span{display:block;color:var(--blue-soft)}
 .hero-role{
@@ -156,7 +151,7 @@ body.static-mode #flash{display:none}
   font-size:clamp(15px,2.1vw,21px);letter-spacing:.3em;text-transform:uppercase;color:var(--amber);
 }
 .hero-pitch{margin-top:20px;font-size:clamp(18px,2.6vw,26px);color:var(--ink);max-width:30ch;line-height:1.35}
-.hero-sub{margin-top:14px;font-size:15px;color:var(--ink-dim);max-width:52ch}
+.hero-sub{margin-top:14px;font-size:16px;color:var(--ink-dim);max-width:52ch}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
 
 .btn{
@@ -165,7 +160,7 @@ body.static-mode #flash{display:none}
   transition:transform .2s ease,background .25s ease,border-color .25s ease,box-shadow .25s ease;
 }
 .btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--blue);color:#fff;box-shadow:0 10px 36px -12px rgba(47,129,247,.85)}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 22px -12px rgba(47,129,247,.5)}
 .btn-primary:hover{background:#4c93ff}
 .btn-ghost{border:1px solid var(--card-brd);color:var(--ink)}
 .btn-ghost:hover{border-color:var(--blue-soft);background:rgba(47,129,247,.1)}
@@ -187,10 +182,9 @@ body.static-mode #flash{display:none}
   display:block;margin-bottom:14px;
 }
 .chapter-title{font-size:clamp(38px,7vw,82px);letter-spacing:-.035em}
-.chapter-sub{margin-top:14px;color:var(--ink-dim);font-size:clamp(15px,1.8vw,18px);max-width:40ch}
+.chapter-sub{margin-top:14px;color:var(--ink-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:44ch}
 .chapter-center .chapter-sub{margin-left:auto;margin-right:auto}
 .warm .chapter-no{color:var(--amber)}
-.warm .chapter-title{text-shadow:0 0 50px rgba(245,166,35,.26)}
 
 /* ---------- callouts ---------- */
 .callout-flow{
@@ -215,28 +209,19 @@ body.static-mode #flash{display:none}
 .callout.warm{border-left-color:var(--amber);border-color:rgba(245,166,35,.26)}
 
 /* ---------- skills ---------- */
-.orb-tip{
-  position:absolute;z-index:40;pointer-events:none;
-  background:rgba(5,9,20,.92);border:1px solid var(--card-brd);
-  border-radius:10px;padding:10px 14px;max-width:260px;
-  opacity:0;transform:translate(-50%,-120%) scale(.96);
-  transition:opacity .18s ease,transform .18s ease;
-  box-shadow:var(--shadow);
-}
-.orb-tip.on{opacity:1;transform:translate(-50%,-130%) scale(1)}
-.orb-tip strong{display:block;font-family:var(--display);font-size:14px;color:var(--blue-soft)}
-.orb-tip span{display:block;font-size:12.5px;color:var(--ink-dim);margin-top:3px;line-height:1.45}
 
 /* Seven groups in two columns overflowed a pinned viewport on any laptop.
    Three columns brings it back to three rows, and the trims below buy the
    rest of the headroom at 720px tall. */
 .skills-panel{
-  margin-top:26px;max-width:min(640px,50vw);
-  display:grid;gap:16px 26px;grid-template-columns:repeat(2,minmax(0,1fr));
+  margin:26px auto 0;max-width:1020px;width:100%;
+  columns:1;column-gap:34px;text-align:left;
 }
-@media (min-width:1024px){
-  .skills-panel{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
+/* Two columns on a phone split "Google Workspace" across lines. One column
+   until there is real width for a chip to sit on a single line. */
+@media (min-width:680px){ .skills-panel{columns:2} }
+@media (min-width:980px){ .skills-panel{columns:3} }
+.skill-group{break-inside:avoid;page-break-inside:avoid;margin:0 0 22px}
 #skills .pin-top{padding-top:9.5vh}
 /* On a short laptop the list still will not fit a pinned viewport. Clipping
    content is never the answer, so there it scrolls in flow instead, the same
@@ -245,23 +230,34 @@ body.static-mode #flash{display:none}
   #skills .pin{position:relative;height:auto;min-height:100vh;padding-bottom:9vh}
 }
 #skills .chapter-title{font-size:clamp(34px,5.2vw,64px)}
-#skills .chapter-sub{margin-top:10px}
+#skills .chapter-sub{margin-top:10px;margin-left:auto;margin-right:auto}
+/* Each group gets its own mark: a headset for support, a chip for the
+   operating systems, a beaker for the things still at lab stage. Seven amber
+   words in a row all looked alike at a glance, and the icon is what tells
+   you which block you are in before you have read it. */
 .skill-group h3{
-  font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);
-  padding-bottom:6px;border-bottom:1px solid var(--line);margin-bottom:9px;
+  display:flex;align-items:center;gap:10px;
+  font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);
+  padding-bottom:9px;border-bottom:1px solid var(--line);margin-bottom:11px;
 }
+.gi{
+  flex:0 0 28px;width:28px;height:28px;border-radius:9px;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid rgba(245,166,35,.26);background:rgba(245,166,35,.07);
+}
+.gi svg{width:16px;height:16px;display:block}
+.skill-group-soft .gi{border-color:var(--line);background:rgba(148,162,185,.07)}
 .skill-group-soft h3{color:var(--ink-faint)}
-.skill-group-soft li{opacity:.78}
-.skill-note{font-size:11.5px;color:var(--ink-faint);margin:-6px 0 10px;font-style:italic}
+.skill-group-soft li{opacity:.88}
+.skill-note{font-size:12.5px;color:var(--ink-faint);margin:-6px 0 10px;font-style:italic}
 
 .skill-group ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 .skill-group li{
-  font-size:12px;color:var(--ink-dim);
-  border:1px solid var(--line);border-radius:999px;padding:4px 10px;
-  background:rgba(10,16,30,.5);
+  font-size:13.5px;color:var(--ink);
+  border:1px solid var(--line);border-radius:999px;padding:5px 12px;
+  background:rgba(8,13,26,.82);
   transition:border-color .2s ease,color .2s ease,background .2s ease;
 }
-.skill-group li.lit{border-color:var(--blue);color:var(--ink);background:rgba(47,129,247,.14)}
 
 /* ---------- timeline ---------- */
 .timeline{
@@ -319,7 +315,7 @@ body.static-mode #flash{display:none}
 
 /* ---------- contact ---------- */
 .contact-block{max-width:680px;margin:0 auto;text-align:center}
-.contact-title{font-size:clamp(44px,9vw,104px);letter-spacing:-.04em;text-shadow:0 0 60px rgba(47,129,247,.35)}
+.contact-title{font-size:clamp(44px,9vw,104px);letter-spacing:-.04em}
 .contact-sub{margin:18px auto 0;color:var(--ink-dim);max-width:48ch;font-size:16px}
 .btn-download{margin-top:26px;gap:10px}
 .btn-download span{font-size:17px;line-height:1}
@@ -371,7 +367,7 @@ body.static-mode .pin{position:static;height:auto;padding-top:16vh;padding-botto
 body.static-mode .callout-flow,
 body.static-mode .timeline,
 body.static-mode .cert-row{position:static;padding-top:0;padding-bottom:12vh;gap:22px;align-items:stretch}
-body.static-mode .skills-panel{max-width:none;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+body.static-mode .skills-panel{max-width:none;columns:3}
 body.static-mode .pin-top{padding-top:12vh}
 body.static-mode .callout-flow,
 body.static-mode .timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
@@ -400,7 +396,7 @@ body.static-mode [data-reveal]{opacity:1;transform:none}
   .callout,.milestone{max-width:none}
   .timeline{align-items:stretch}
   .chapter{max-width:none}
-  .skills-panel{max-width:none;gap:18px;margin-top:24px}
+  .skills-panel{max-width:none;column-gap:22px;margin-top:24px}
   .timeline{padding-top:58vh;gap:34vh}
   .hero-pitch{max-width:none}
 }
@@ -416,12 +412,11 @@ body.static-mode [data-reveal]{opacity:1;transform:none}
   #contact{min-height:235vh}
   #contact .pin{position:relative;height:auto;min-height:auto;padding-top:15vh;padding-bottom:0}
   .skills-panel{
-    background:linear-gradient(180deg,rgba(5,8,16,.84),rgba(5,8,16,.95));
+    background:linear-gradient(180deg,rgba(4,7,14,.94),rgba(4,7,14,.985));
     border:1px solid var(--line);border-radius:16px;padding:18px 16px;
   }
-  #skills .orb-tip{display:none}
   /* Nothing behind a card should read through it on a small screen. */
-  .callout,.milestone,.cert,.ccard{background:rgba(8,13,25,.9)}
+  .callout,.milestone,.cert,.ccard{background:rgba(4,7,15,.95)}
 }
 
 @media (max-width:620px){
