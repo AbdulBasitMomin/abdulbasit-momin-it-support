@@ -1,1 +1,391 @@
-PCFkb2N0eXBlIGh0bWw+PGh0bWw+PGhlYWQ+PG1ldGEgY2hhcnNldD11dGY4PjxtZXRhIG5hbWU9dmlld3BvcnQgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLGluaXRpYWwtc2NhbGU9MSx2aWV3cG9ydC1maXQ9Y292ZXIiPjxzdHlsZT46cm9vdHtjb2xvci1zY2hlbWU6bGlnaHQ7Ym94LXNpemluZzpib3JkZXItYm94O3BhZGRpbmctdG9wOmVudihzYWZlLWFyZWEtaW5zZXQtdG9wLDBweCk7cGFkZGluZy1ib3R0b206ZW52KHNhZmUtYXJlYS1pbnNldC1ib3R0b20sMHB4KX1odG1se3Njcm9sbC1wYWRkaW5nLXRvcDplbnYoc2FmZS1hcmVhLWluc2V0LXRvcCwwcHgpfWJvZHl7bWFyZ2luOjA7cGFkZGluZzowO2ZvbnQ6MTRweCAtYXBwbGUtc3lzdGVtLEJsaW5rTWFjU3lzdGVtRm9udCxzYW5zLXNlcmlmO2JhY2tncm91bmQ6I2ZmZjtjb2xvcjojMDAwfWltZ3ttYXgtd2lkdGg6MTAwJX1baGlkZGVuXTpub3QoW2hpZGRlbj11bnRpbC1mb3VuZCBpXSl7ZGlzcGxheTpub25lIWltcG9ydGFudH08L3N0eWxlPjwvaGVhZD48Ym9keT4KPCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9InV0Zi04IiAvPgo8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEsIHZpZXdwb3J0LWZpdD1jb3ZlciIgLz4KPHRpdGxlPkFiZHVsYmFzaXQgTW9taW4gwrcgSVQgU3VwcG9ydCBUZWNobmljaWFuPC90aXRsZT4KPG1ldGEgbmFtZT0iZGVzY3JpcHRpb24iIGNvbnRlbnQ9IlNjcm9sbC1kcml2ZW4gM0QgcmVzdW1lIG9mIEFiZHVsYmFzaXQgTW9taW4sIGFuIElUIHN1cHBvcnQgdGVjaG5pY2lhbiBpbiBFdG9iaWNva2UsIE9udGFyaW8uIEhhcmR3YXJlIHRyb3VibGVzaG9vdGluZywgbmV0d29ya2luZyBmdW5kYW1lbnRhbHMsIEFjdGl2ZSBEaXJlY3RvcnksIHRpY2tldGluZyBhbmQgY2xlYXIgdXNlciBjb21tdW5pY2F0aW9uLiIgLz4KPG1ldGEgbmFtZT0iYXV0aG9yIiBjb250ZW50PSJBYmR1bGJhc2l0IE1vbWluIiAvPgo8bWV0YSBuYW1lPSJ0aGVtZS1jb2xvciIgY29udGVudD0iIzA1MDgxMCIgLz4KPG1ldGEgbmFtZT0icm9ib3RzIiBjb250ZW50PSJpbmRleCwgZm9sbG93IiAvPgoKPG1ldGEgcHJvcGVydHk9Im9nOnR5cGUiIGNvbnRlbnQ9InByb2ZpbGUiIC8+CjxtZXRhIHByb3BlcnR5PSJvZzp0aXRsZSIgY29udGVudD0iQWJkdWxiYXNpdCBNb21pbiDCtyBJVCBTdXBwb3J0IFRlY2huaWNpYW4iIC8+CjxtZXRhIHByb3BlcnR5PSJvZzpkZXNjcmlwdGlvbiIgY29udGVudD0iSSBrZWVwIHN5c3RlbXMgcnVubmluZyBhbmQgdXNlcnMgd29ya2luZy4gQSBzY3JvbGwtZHJpdmVuIDNEIHJlc3VtZTogaGFyZHdhcmUsIG5ldHdvcmtpbmcsIGhlbHBkZXNrLiIgLz4KPG1ldGEgcHJvcGVydHk9Im9nOmxvY2FsZSIgY29udGVudD0iZW5fQ0EiIC8+CjxtZXRhIHByb3BlcnR5PSJwcm9maWxlOmZpcnN0X25hbWUiIGNvbnRlbnQ9IkFiZHVsYmFzaXQiIC8+CjxtZXRhIHByb3BlcnR5PSJwcm9maWxlOmxhc3RfbmFtZSIgY29udGVudD0iTW9taW4iIC8+CjxtZXRhIG5hbWU9InR3aXR0ZXI6Y2FyZCIgY29udGVudD0ic3VtbWFyeV9sYXJnZV9pbWFnZSIgLz4KPG1ldGEgbmFtZT0idHdpdHRlcjp0aXRsZSIgY29udGVudD0iQWJkdWxiYXNpdCBNb21pbiDCtyBJVCBTdXBwb3J0IFRlY2huaWNpYW4iIC8+CjxtZXRhIG5hbWU9InR3aXR0ZXI6ZGVzY3JpcHRpb24iIGNvbnRlbnQ9Ikkga2VlcCBzeXN0ZW1zIHJ1bm5pbmcgYW5kIHVzZXJzIHdvcmtpbmcuIEEgc2Nyb2xsLWRyaXZlbiAzRCByZXN1bWUuIiAvPgoKPGxpbmsgcmVsPSJwcmVjb25uZWN0IiBocmVmPSJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tIiAvPgo8bGluayByZWw9InByZWNvbm5lY3QiIGhyZWY9Imh0dHBzOi8vZm9udHMuZ3N0YXRpYy5jb20iIGNyb3Nzb3JpZ2luIC8+CjxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3MyP2ZhbWlseT1TcGFjZStHcm90ZXNrOndnaHRANTAwOzcwMCZmYW1pbHk9SW50ZXI6d2dodEA0MDA7NTAwOzYwMCZkaXNwbGF5PXN3YXAiIC8+CjxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0ic3R5bGVzLmNzcyIgLz4KPGxpbmsgcmVsPSJpY29uIiBocmVmPSJkYXRhOmltYWdlL3N2Zyt4bWwsJTNDc3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDMyIDMyJyUzRSUzQ3JlY3Qgd2lkdGg9JzMyJyBoZWlnaHQ9JzMyJyByeD0nNycgZmlsbD0nJTIzMDUwODEwJy8lM0UlM0NwYXRoIGQ9J004IDIwLjUgMTMgMTBoMi4ybDUgMTAuNWgtMi40bC0xLjA1LTIuM2gtNS4zTDEwLjQgMjAuNUg4Wm00LjMtNC4yaDMuNmwtMS44LTMuOTUtMS44IDMuOTVaJyBmaWxsPSclMjMyZjgxZjcnLyUzRSUzQ2NpcmNsZSBjeD0nMjMnIGN5PScyMicgcj0nMicgZmlsbD0nJTIzZjVhNjIzJy8lM0UlM0Mvc3ZnJTNFIiAvPgoKPHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJQZXJzb24iLAogICJuYW1lIjogIkFiZHVsYmFzaXQgTW9taW4iLAogICJqb2JUaXRsZSI6ICJJVCBTdXBwb3J0IFRlY2huaWNpYW4iLAogICJlbWFpbCI6ICJtYWlsdG86YmFzaXRtb21pbjAxQGdtYWlsLmNvbSIsCiAgInRlbGVwaG9uZSI6ICIrMS00MTYtNTI2LTgyMDIiLAogICJhZGRyZXNzIjogeyAiQHR5cGUiOiAiUG9zdGFsQWRkcmVzcyIsICJhZGRyZXNzTG9jYWxpdHkiOiAiRXRvYmljb2tlIiwgImFkZHJlc3NSZWdpb24iOiAiT04iLCAiYWRkcmVzc0NvdW50cnkiOiAiQ0EiIH0sCiAgInNhbWVBcyI6IFsiaHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2FibW9taW4xIl0sCiAgImFsdW1uaU9mIjogeyAiQHR5cGUiOiAiQ29sbGVnZU9yVW5pdmVyc2l0eSIsICJuYW1lIjogIkd1amFyYXQgVGVjaG5vbG9naWNhbCBVbml2ZXJzaXR5IiB9Cn0KPC9zY3JpcHQ+CjwvaGVhZD4KPGJvZHk+Cgo8YSBjbGFzcz0ic2tpcC1saW5rIiBocmVmPSIjaGFyZHdhcmUiPlNraXAgdG8gdGhlIHJlc3VtZSBjb250ZW50PC9hPgoKPGRpdiBpZD0ibG9hZGVyIiByb2xlPSJzdGF0dXMiIGFyaWEtbGl2ZT0icG9saXRlIj4KICA8ZGl2IGNsYXNzPSJsb2FkZXItaW5uZXIiPgogICAgPGRpdiBjbGFzcz0ibG9hZGVyLW1hcmsiIGFyaWEtaGlkZGVuPSJ0cnVlIj48c3Bhbj48L3NwYW4+PHNwYW4+PC9zcGFuPjxzcGFuPjwvc3Bhbj48L2Rpdj4KICAgIDxwIGNsYXNzPSJsb2FkZXItbGFiZWwiPkJvb3RpbmcgdGhlIHNjZW5lPC9wPgogICAgPGRpdiBjbGFzcz0ibG9hZGVyLWJhciI+PGkgaWQ9ImxvYWRlci1maWxsIj48L2k+PC9kaXY+CiAgICA8cCBjbGFzcz0ibG9hZGVyLXBjdCI+PHNwYW4gaWQ9ImxvYWRlci1wY3QiPjA8L3NwYW4+JTwvcD4KICA8L2Rpdj4KPC9kaXY+Cgo8Y2FudmFzIGlkPSJzdGFnZSIgYXJpYS1oaWRkZW49InRydWUiPjwvY2FudmFzPgo8ZGl2IGlkPSJncmFpbiIgYXJpYS1oaWRkZW49InRydWUiPjwvZGl2Pgo8ZGl2IGlkPSJ2aWduZXR0ZSIgYXJpYS1oaWRkZW49InRydWUiPjwvZGl2Pgo8ZGl2IGlkPSJmbGFzaCIgYXJpYS1oaWRkZW49InRydWUiPjwvZGl2PgoKPGhlYWRlciBjbGFzcz0idG9wYmFyIj4KICA8c3BhbiBjbGFzcz0idG9wYmFyLW5hbWUiPkFiZHVsYmFzaXQgTW9taW48L3NwYW4+CiAgPG5hdiBjbGFzcz0idG9wYmFyLW5hdiIgYXJpYS1sYWJlbD0iU2VjdGlvbiI+CiAgICA8c3BhbiBpZD0iY2hhcHRlci1sYWJlbCI+SW50cm88L3NwYW4+CiAgICA8YSBjbGFzcz0idG9wYmFyLWN0YSIgaHJlZj0iI2NvbnRhY3QiPkNvbnRhY3Q8L2E+CiAgPC9uYXY+CjwvaGVhZGVyPgoKPGRpdiBjbGFzcz0icHJvZ3Jlc3MtcmFpbCIgYXJpYS1oaWRkZW49InRydWUiPjxpIGlkPSJwcm9ncmVzcy1maWxsIj48L2k+PC9kaXY+Cgo8bWFpbiBpZD0ic2Nyb2xsLXJvb3QiPgoKICA8IS0tID09PT09PT09PT09PSAwLiBIRVJPID09PT09PT09PT09PSAtLT4KICA8c2VjdGlvbiBjbGFzcz0ic2NlbmUiIGlkPSJoZXJvIiBkYXRhLXNjZW5lPSJoZXJvIiBhcmlhLWxhYmVsbGVkYnk9Imhlcm8tdGl0bGUiPgogICAgPGRpdiBjbGFzcz0icGluIj4KICAgICAgPGRpdiBjbGFzcz0iaGVyby1ibG9jayI+CiAgICAgICAgPHAgY2xhc3M9ImV5ZWJyb3ciPkV0b2JpY29rZSwgT250YXJpbyDCtyBPcGVuIHRvIHdvcms8L3A+CiAgICAgICAgPGgxIGlkPSJoZXJvLXRpdGxlIiBjbGFzcz0iaGVyby1uYW1lIj5BYmR1bGJhc2l0PHNwYW4+TW9taW48L3NwYW4+PC9oMT4KICAgICAgICA8cCBjbGFzcz0iaGVyby1yb2xlIj5JVCBTdXBwb3J0IFRlY2huaWNpYW48L3A+CiAgICAgICAgPHAgY2xhc3M9Imhlcm8tcGl0Y2giPkkga2VlcCBzeXN0ZW1zIHJ1bm5pbmcgYW5kIHVzZXJzIHdvcmtpbmcuPC9wPgogICAgICAgIDxwIGNsYXNzPSJoZXJvLXN1YiI+Q3VycmVudGx5IGFuIEFJIEV2YWx1YXRvciBhdCBNZXJjb3IsIGFuZCB0cmFpbmluZyBhcyBhIEp1bmlvciBJVCBBbmFseXN0IHdpdGggTlBvd2VyIENhbmFkYS4gRm91ciB5ZWFycyBiZWZvcmUgdGhhdCBzdXBwb3J0aW5nIHVzZXJzIGFuZCBzb2Z0d2FyZSB0ZWFtcyBhcyBhIEJ1c2luZXNzIEFuYWx5c3QgYW5kIHByb2R1Y3Qgb3duZXIuPC9wPgogICAgICAgIDxkaXYgY2xhc3M9Imhlcm8tYWN0aW9ucyI+CiAgICAgICAgICA8YSBjbGFzcz0iYnRuIGJ0bi1wcmltYXJ5IiBocmVmPSJtYWlsdG86YmFzaXRtb21pbjAxQGdtYWlsLmNvbSI+RW1haWwgbWU8L2E+CiAgICAgICAgICA8YSBjbGFzcz0iYnRuIGJ0bi1naG9zdCIgZGF0YS1yZXN1bWUgaHJlZj0iQWJkdWxiYXNpdC1Nb21pbi1SZXN1bWUucGRmIiBkb3dubG9hZD0iQWJkdWxiYXNpdC1Nb21pbi1SZXN1bWUucGRmIj48c3BhbiBjbGFzcz0iZGwtbGFiZWwiPkRvd25sb2FkIHJlc3VtZTwvc3Bhbj48L2E+CiAgICAgICAgICA8YSBjbGFzcz0iYnRuIGJ0bi1naG9zdCIgaHJlZj0iaHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2FibW9taW4xIiB0YXJnZXQ9Il9ibGFuayIgcmVsPSJub29wZW5lciI+TGlua2VkSW48L2E+CiAgICAgICAgPC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJzY3JvbGwtaGludCIgYXJpYS1oaWRkZW49InRydWUiPgogICAgICAgIDxzcGFuPlNjcm9sbDwvc3Bhbj4KICAgICAgICA8aSBjbGFzcz0ic2Nyb2xsLXRyYWNrIj48Yj48L2I+PC9pPgogICAgICA8L2Rpdj4KICAgIDwvZGl2PgogIDwvc2VjdGlvbj4KCiAgPCEtLSA9PT09PT09PT09PT0gMS4gSEFSRFdBUkUgPT09PT09PT09PT09IC0tPgogIDxzZWN0aW9uIGNsYXNzPSJzY2VuZSBzY2VuZS10YWxsIiBpZD0iaGFyZHdhcmUiIGRhdGEtc2NlbmU9ImhhcmR3YXJlIiBhcmlhLWxhYmVsbGVkYnk9ImhhcmR3YXJlLXRpdGxlIj4KICAgIDxkaXYgY2xhc3M9InBpbiI+CiAgICAgIDxkaXYgY2xhc3M9ImNoYXB0ZXIiPgogICAgICAgIDxzcGFuIGNsYXNzPSJjaGFwdGVyLW5vIj4wMTwvc3Bhbj4KICAgICAgICA8aDIgaWQ9ImhhcmR3YXJlLXRpdGxlIiBjbGFzcz0iY2hhcHRlci10aXRsZSI+SGFyZHdhcmU8L2gyPgogICAgICAgIDxwIGNsYXNzPSJjaGFwdGVyLXN1YiI+RG93biB0byB0aGUgYm9hcmQsIHdoZXJlIHRoZSBwcm9ibGVtIHVzdWFsbHkgaXMuPC9wPgogICAgICA8L2Rpdj4KICAgIDwvZGl2PgogICAgPGRpdiBjbGFzcz0iY2FsbG91dC1mbG93Ij4KICAgICAgPGFydGljbGUgY2xhc3M9ImNhbGxvdXQiIGRhdGEtcmV2ZWFsID4KICAgICAgICA8aDM+SGFyZHdhcmUgdHJvdWJsZXNob290aW5nPC9oMz4KICAgICAgICA8cD5EZXNrdG9wcyBhbmQgbGFwdG9wczogaXNvbGF0ZSB0aGUgZmF1bHR5IHBhcnQsIHRlc3QgaXQsIHJlcGxhY2UgaXQsIGNvbmZpcm0gdGhlIHVzZXIgaXMgYmFjayB0byB3b3JrLjwvcD4KICAgICAgPC9hcnRpY2xlPgogICAgICA8YXJ0aWNsZSBjbGFzcz0iY2FsbG91dCIgZGF0YS1yZXZlYWwgPgogICAgICAgIDxoMz5PcGVyYXRpbmcgc3lzdGVtIGNvbmZpZ3VyYXRpb248L2gzPgogICAgICAgIDxwPldpbmRvd3MgYW5kIExpbnV4IHNldHVwLCBkaXNrIHBhcnRpdGlvbnMgYW5kIGZpbGVzeXN0ZW1zLiBQcmFjdGlzZWQgdGhyb3VnaCB0aGUgTlBvd2VyIENhbmFkYSBKdW5pb3IgSVQgQW5hbHlzdCBwcm9ncmFtLjwvcD4KICAgICAgPC9hcnRpY2xlPgogICAgICA8YXJ0aWNsZSBjbGFzcz0iY2FsbG91dCIgZGF0YS1yZXZlYWwgPgogICAgICAgIDxoMz5Tb2Z0d2FyZSBhbmQgcHJpbnRlcnM8L2gzPgogICAgICAgIDxwPkluc3RhbGxhdGlvbnMsIGRyaXZlcnMgYW5kIHRoZSBwZXJpcGhlcmFscyBub2JvZHkgdm9sdW50ZWVycyBmb3IuIFByaW50ZXIgc3VwcG9ydCBpcyBvbiB0aGUgbGlzdCBiZWNhdXNlIGl0IGhhcyB0byBiZS48L3A+CiAgICAgIDwvYXJ0aWNsZT4KICAgIDwvZGl2PgogIDwvc2VjdGlvbj4KCiAgPCEtLSA9PT09PT09PT09PT0gMi4gTkVUV09SSyA9PT09PT09PT09PT0gLS0+CiAgPHNlY3Rpb24gY2xhc3M9InNjZW5lIHNjZW5lLXRhbGwiIGlkPSJuZXR3b3JrIiBkYXRhLXNjZW5lPSJuZXR3b3JrIiBhcmlhLWxhYmVsbGVkYnk9Im5ldHdvcmstdGl0bGUiPgogICAgPGRpdiBjbGFzcz0icGluIj4KICAgICAgPGRpdiBjbGFzcz0iY2hhcHRlciI+CiAgICAgICAgPHNwYW4gY2xhc3M9ImNoYXB0ZXItbm8iPjAyPC9zcGFuPgogICAgICAgIDxoMiBpZD0ibmV0d29yay10aXRsZSIgY2xhc3M9ImNoYXB0ZXItdGl0bGUiPk5ldHdvcms8L2gyPgogICAgICAgIDxwIGNsYXNzPSJjaGFwdGVyLXN1YiI+Rm9sbG93IHRoZSBwYWNrZXQgdW50aWwgaXQgc3RvcHMuPC9wPgogICAgICA8L2Rpdj4KICAgIDwvZGl2PgogICAgPGRpdiBjbGFzcz0iY2FsbG91dC1mbG93Ij4KICAgICAgPGFydGljbGUgY2xhc3M9ImNhbGxvdXQiIGRhdGEtcmV2ZWFsID4KICAgICAgICA8aDM+TmV0d29ya2luZyBmdW5kYW1lbnRhbHM8L2gzPgogICAgICAgIDxwPlRDUC9JUCwgRE5TIGFuZCBESENQLCBwbHVzIFZQTiBiYXNpY3MgYW5kIFdpLUZpIHRyb3VibGVzaG9vdGluZy4gRW5vdWdoIHRvIHRlbGwgYSBjbGllbnQgcHJvYmxlbSBmcm9tIGEgbmV0d29yayBvbmUuPC9wPgogICAgICA8L2FydGljbGU+CiAgICAgIDxhcnRpY2xlIGNsYXNzPSJjYWxsb3V0IiBkYXRhLXJldmVhbCA+CiAgICAgICAgPGgzPkRpcmVjdG9yeSBzZXJ2aWNlczwvaDM+CiAgICAgICAgPHA+QWN0aXZlIERpcmVjdG9yeSBhbmQgT3BlbkxEQVA6IHVzZXIgYWNjb3VudHMsIGFjY2VzcyBhbmQgdGhlIHBhc3N3b3JkIHJlc2V0IHRoYXQgdW5ibG9ja3Mgc29tZW9uZSdzIG1vcm5pbmcuPC9wPgogICAgICA8L2FydGljbGU+CiAgICAgIDxhcnRpY2xlIGNsYXNzPSJjYWxsb3V0IiBkYXRhLXJldmVhbCA+CiAgICAgICAgPGgzPkRvY3VtZW50YXRpb24gYW5kIGNoYW5nZTwvaDM+CiAgICAgICAgPHA+Q29yZSBzZXJ2aWNlIGFuZCBzdXBwb3J0IGlzc3VlcyBoYW5kbGVkIHdpdGggZG9jdW1lbnRhdGlvbiBhbmQgY2hhbmdlIG1hbmFnZW1lbnQgcHJhY3RpY2UsIHNvIHRoZSBuZXh0IHBlcnNvbiBpbmhlcml0cyBhIHRyYWlsLjwvcD4KICAgICAgPC9hcnRpY2xlPgogICAgPC9kaXY+CiAgPC9zZWN0aW9uPgoKICA8IS0tID09PT09PT09PT09PSAzLiBIRUxQREVTSyA9PT09PT09PT09PT0gLS0+CiAgPHNlY3Rpb24gY2xhc3M9InNjZW5lIHNjZW5lLXRhbGwgd2FybSIgaWQ9ImhlbHBkZXNrIiBkYXRhLXNjZW5lPSJoZWxwZGVzayIgYXJpYS1sYWJlbGxlZGJ5PSJoZWxwZGVzay10aXRsZSI+CiAgICA8ZGl2IGNsYXNzPSJwaW4iPgogICAgICA8ZGl2IGNsYXNzPSJjaGFwdGVyIj4KICAgICAgICA8c3BhbiBjbGFzcz0iY2hhcHRlci1ubyI+MDM8L3NwYW4+CiAgICAgICAgPGgyIGlkPSJoZWxwZGVzay10aXRsZSIgY2xhc3M9ImNoYXB0ZXItdGl0bGUiPkhlbHBkZXNrPC9oMj4KICAgICAgICA8cCBjbGFzcz0iY2hhcHRlci1zdWIiPlRoZSBwYXJ0IHRoYXQgaXMgYWN0dWFsbHkgYWJvdXQgcGVvcGxlLjwvcD4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KICAgIDxkaXYgY2xhc3M9ImNhbGxvdXQtZmxvdyI+CiAgICAgIDxhcnRpY2xlIGNsYXNzPSJjYWxsb3V0IHdhcm0iIGRhdGEtcmV2ZWFsID4KICAgICAgICA8aDM+VGlja2V0aW5nIHN5c3RlbXM8L2gzPgogICAgICAgIDxwPkppcmEgYW5kIENvbmZsdWVuY2U6IHRyaWFnZSB3aGF0IGNvbWVzIGluLCB0cmFjayBpdCBob25lc3RseSwgY2xvc2UgaXQgd2hlbiBpdCBpcyBnZW51aW5lbHkgZml4ZWQuPC9wPgogICAgICA8L2FydGljbGU+CiAgICAgIDxhcnRpY2xlIGNsYXNzPSJjYWxsb3V0IHdhcm0iIGRhdGEtcmV2ZWFsID4KICAgICAgICA8aDM+Rmlyc3QgcG9pbnQgb2YgY29udGFjdDwvaDM+CiAgICAgICAgPHA+QXQgU2FyamVuIEkgd2FzIHRoZSBmaXJzdCBwZXJzb24gYnVzaW5lc3MgdXNlcnMgY2FtZSB0byB3aXRoIGFwcGxpY2F0aW9uIGlzc3Vlcy4gSSBkaWFnbm9zZWQgdGhlbSBhbmQgY29vcmRpbmF0ZWQgdGhlIGZpeCB3aXRoIHRoZSBkZXZlbG9wbWVudCB0ZWFtLjwvcD4KICAgICAgPC9hcnRpY2xlPgogICAgICA8YXJ0aWNsZSBjbGFzcz0iY2FsbG91dCB3YXJtIiBkYXRhLXJldmVhbCA+CiAgICAgICAgPGgzPlBsYWluIGxhbmd1YWdlPC9oMz4KICAgICAgICA8cD5Vc2VyIGd1aWRlcyBhbmQgcHJvY2VzcyBkb2N1bWVudGF0aW9uIHdyaXR0ZW4gd2l0aG91dCBqYXJnb24sIGZvciBwZW9wbGUgd2hvIGRvIG5vdCB3YW50IGEgbGVzc29uLCB0aGV5IHdhbnQgdGhlaXIgZGF5IGJhY2suPC9wPgogICAgICA8L2FydGljbGU+CiAgICA8L2Rpdj4KICA8L3NlY3Rpb24+CgogIDwhLS0gPT09PT09PT09PT09IDQuIFNLSUxMUyA9PT09PT09PT09PT0gLS0+CiAgPHNlY3Rpb24gY2xhc3M9InNjZW5lIHNjZW5lLW1pZCIgaWQ9InNraWxscyIgZGF0YS1zY2VuZT0ic2tpbGxzIiBhcmlhLWxhYmVsbGVkYnk9InNraWxscy10aXRsZSI+CiAgICA8ZGl2IGNsYXNzPSJwaW4gcGluLXRvcCI+CiAgICAgIDxkaXYgY2xhc3M9ImNoYXB0ZXIiPgogICAgICAgIDxzcGFuIGNsYXNzPSJjaGFwdGVyLW5vIj4wNDwvc3Bhbj4KICAgICAgICA8aDIgaWQ9InNraWxscy10aXRsZSIgY2xhc3M9ImNoYXB0ZXItdGl0bGUiPlRvb2xraXQ8L2gyPgogICAgICAgIDxwIGNsYXNzPSJjaGFwdGVyLXN1YiI+SG92ZXIgYW4gb3JiLCBvciByZWFkIHRoZSBsaXN0LiBTYW1lIGZhY3RzIGVpdGhlciB3YXkuPC9wPgogICAgICA8L2Rpdj4KICAgICAgPGRpdiBjbGFzcz0ic2tpbGxzLXBhbmVsIiBkYXRhLXJldmVhbD4KICAgICAgICA8ZGl2IGNsYXNzPSJza2lsbC1ncm91cCI+CiAgICAgICAgICA8aDM+T3BlcmF0aW5nIHN5c3RlbXM8L2gzPgogICAgICAgICAgPHVsIGlkPSJzZy1vcyI+PC91bD4KICAgICAgICA8L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJza2lsbC1ncm91cCI+CiAgICAgICAgICA8aDM+TmV0d29ya2luZzwvaDM+CiAgICAgICAgICA8dWwgaWQ9InNnLW5ldCI+PC91bD4KICAgICAgICA8L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJza2lsbC1ncm91cCI+CiAgICAgICAgICA8aDM+VG9vbHM8L2gzPgogICAgICAgICAgPHVsIGlkPSJzZy10b29scyI+PC91bD4KICAgICAgICA8L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJza2lsbC1ncm91cCI+CiAgICAgICAgICA8aDM+U3VwcG9ydDwvaDM+CiAgICAgICAgICA8dWwgaWQ9InNnLXN1cHBvcnQiPjwvdWw+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ic2tpbGwtZ3JvdXAiPgogICAgICAgICAgPGgzPkRhdGEgYW5kIHNjcmlwdGluZzwvaDM+CiAgICAgICAgICA8dWwgaWQ9InNnLWRhdGEiPjwvdWw+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ic2tpbGwtZ3JvdXAiPgogICAgICAgICAgPGgzPkhvdyBJIHdvcms8L2gzPgogICAgICAgICAgPHVsIGlkPSJzZy1zb2Z0Ij48L3VsPgogICAgICAgIDwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9InNraWxsLWdyb3VwIHNraWxsLWdyb3VwLXNvZnQiPgogICAgICAgICAgPGgzPkZhbWlsaWFyIHdpdGg8L2gzPgogICAgICAgICAgPHAgY2xhc3M9InNraWxsLW5vdGUiPkxhYnMgYW5kIHRyaWFscywgbm90IHlldCBkYXkgdG8gZGF5LjwvcD4KICAgICAgICAgIDx1bCBpZD0ic2ctZmFtaWxpYXIiPjwvdWw+CiAgICAgICAgPC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGlkPSJvcmItdGlwIiBjbGFzcz0ib3JiLXRpcCIgYXJpYS1oaWRkZW49InRydWUiPjxzdHJvbmc+PC9zdHJvbmc+PHNwYW4+PC9zcGFuPjwvZGl2PgogICAgPC9kaXY+CiAgPC9zZWN0aW9uPgoKICA8IS0tID09PT09PT09PT09PSA1LiBUSU1FTElORSA9PT09PT09PT09PT0gLS0+CiAgPHNlY3Rpb24gY2xhc3M9InNjZW5lIHNjZW5lLXh0YWxsIiBpZD0iZXhwZXJpZW5jZSIgZGF0YS1zY2VuZT0iZXhwZXJpZW5jZSIgYXJpYS1sYWJlbGxlZGJ5PSJleHBlcmllbmNlLXRpdGxlIj4KICAgIDxkaXYgY2xhc3M9InBpbiBwaW4tdG9wIj4KICAgICAgPGRpdiBjbGFzcz0iY2hhcHRlciI+CiAgICAgICAgPHNwYW4gY2xhc3M9ImNoYXB0ZXItbm8iPjA1PC9zcGFuPgogICAgICAgIDxoMiBpZD0iZXhwZXJpZW5jZS10aXRsZSIgY2xhc3M9ImNoYXB0ZXItdGl0bGUiPlRoZSByb2FkIGhlcmU8L2gyPgogICAgICAgIDxwIGNsYXNzPSJjaGFwdGVyLXN1YiI+V2hlcmUgSSBhbSBub3csIGFuZCBob3cgSSBnb3QgaGVyZS48L3A+CiAgICAgIDwvZGl2PgogICAgPC9kaXY+CiAgICA8b2wgY2xhc3M9InRpbWVsaW5lIj4KICAgICAgPGxpIGNsYXNzPSJtaWxlc3RvbmUiIGRhdGEtcmV2ZWFsPgogICAgICAgIDxwIGNsYXNzPSJtcy1kYXRlIj5NYXkgMjAyNiB0byBwcmVzZW50IDxzcGFuIGNsYXNzPSJtcy10YWcgbXMtbm93Ij5DdXJyZW50PC9zcGFuPjwvcD4KICAgICAgICA8aDM+QUkgRXZhbHVhdG9yLCBmcmVlbGFuY2U8c3Bhbj5NZXJjb3IsIFJlbW90ZTwvc3Bhbj48L2gzPgogICAgICAgIDxwPldvcmsgYSBoaWdoIHZvbHVtZSBxdWV1ZSBhZ2FpbnN0IHN0cmljdCB0aHJvdWdocHV0IGFuZCBxdWFsaXR5IHRhcmdldHMsIGFwcGx5aW5nIGEgZGV0YWlsZWQgcnVicmljIHRvIGV2ZXJ5IGl0ZW0gYW5kIGRvY3VtZW50aW5nIGZpbmRpbmdzIGNvbnNpc3RlbnRseS4gRnVsbHkgcmVtb3RlIGFuZCB1bnN1cGVydmlzZWQsIHNvIHRoZSBwcmlvcml0aXNpbmcgYW5kIHRoZSBmb2xsb3cgdGhyb3VnaCBhcmUgbWluZS4gVGhlIHN1YmplY3QgbWF0dGVyIGlzIEFJIG91dHB1dDsgdGhlIGRpc2NpcGxpbmUgaXMgdGhlIG9uZSBhIHRpY2tldCBxdWV1ZSBydW5zIG9uLjwvcD4KICAgICAgPC9saT4KICAgICAgPGxpIGNsYXNzPSJtaWxlc3RvbmUiIGRhdGEtcmV2ZWFsPgogICAgICAgIDxwIGNsYXNzPSJtcy1kYXRlIj5PY3QgMjAyNiB0byBKYW4gMjAyNyA8c3BhbiBjbGFzcz0ibXMtdGFnIG1zLXByb2ciPkluIHByb2dyZXNzPC9zcGFuPjwvcD4KICAgICAgICA8aDM+SnVuaW9yIElUIEFuYWx5c3QgUHJvZ3JhbTxzcGFuPk5Qb3dlciBDYW5hZGEsIE9ubGluZTwvc3Bhbj48L2gzPgogICAgICAgIDxwPkEgMTUgd2VlayBpbnRlbnNpdmUgb24gSVQgZnVuZGFtZW50YWxzLCBuZXR3b3JraW5nIGFuZCBwcm9qZWN0IG1hbmFnZW1lbnQuIE9wZXJhdGluZyBzeXN0ZW0gY29uZmlndXJhdGlvbiwgZGlyZWN0b3J5IHNlcnZpY2VzLCBETlMsIERIQ1AgYW5kIFRDUC9JUCwgcGx1cyBBZ2lsZSBkZWxpdmVyeS48L3A+CiAgICAgIDwvbGk+CiAgICAgIDxsaSBjbGFzcz0ibWlsZXN0b25lIiBkYXRhLXJldmVhbD4KICAgICAgICA8cCBjbGFzcz0ibXMtZGF0ZSI+SnVsIDIwMjUgdG8gQXByIDIwMjY8L3A+CiAgICAgICAgPGgzPkJvZHlXZWxsbmVzc0FJPHNwYW4+SW5kZXBlbmRlbnQgcHJvZHVjdCwgUmVtb3RlPC9zcGFuPjwvaDM+CiAgICAgICAgPHA+RGVzaWduZWQgYW5kIGxhdW5jaGVkIGFuIEFJIHBvd2VyZWQgd2VsbG5lc3MgcGxhdGZvcm0gb24gbXkgb3duLiBTZXQgdGhlIHJvYWRtYXAsIG93bmVkIHF1YWxpdHkgZW5kIHRvIGVuZCBieSByZXByb2R1Y2luZyBkZWZlY3RzIGFuZCB2ZXJpZnlpbmcgZml4ZXMsIGFuZCB3cm90ZSB0aGUgdXNlciBndWlkZXMgYW5kIHJlbGVhc2Ugbm90ZXMuPC9wPgogICAgICA8L2xpPgogICAgICA8bGkgY2xhc3M9Im1pbGVzdG9uZSIgZGF0YS1yZXZlYWw+CiAgICAgICAgPHAgY2xhc3M9Im1zLWRhdGUiPkphbiAyMDIyIHRvIEp1biAyMDI1PC9wPgogICAgICAgIDxoMz5CdXNpbmVzcyBBbmFseXN0PHNwYW4+U2FyamVuLCBBaG1lZGFiYWQsIEluZGlhPC9zcGFuPjwvaDM+CiAgICAgICAgPHA+Rmlyc3QgcG9pbnQgb2YgY29udGFjdCBmb3IgYnVzaW5lc3MgdXNlcnMgcmVwb3J0aW5nIGFwcGxpY2F0aW9uIGlzc3Vlcy4gUmVwcm9kdWNlZCBkZWZlY3RzIHdpdGggZGV0YWlsZWQgcmVwbGljYXRpb24gc3RlcHMgdGhhdCBzcGVkIHVwIFFBIGFuZCBkZXZlbG9wbWVudCBoYW5kb2ZmcywgYXV0aG9yZWQgdXNlciBndWlkZXMsIGFuZCBidWlsdCA4IFBvd2VyIEJJIGRhc2hib2FyZHMgdGhhdCBpbXByb3ZlZCByZXBvcnRpbmcgZWZmaWNpZW5jeSBieSBhYm91dCAyMCBwZXJjZW50LjwvcD4KICAgICAgPC9saT4KICAgICAgPGxpIGNsYXNzPSJtaWxlc3RvbmUiIGRhdGEtcmV2ZWFsPgogICAgICAgIDxwIGNsYXNzPSJtcy1kYXRlIj5NYXkgMjAyMjwvcD4KICAgICAgICA8aDM+QmFjaGVsb3Igb2YgRW5naW5lZXJpbmcsIEluZm9ybWF0aW9uIFRlY2hub2xvZ3k8c3Bhbj5HdWphcmF0IFRlY2hub2xvZ2ljYWwgVW5pdmVyc2l0eSwgQWhtZWRhYmFkLCBJbmRpYTwvc3Bhbj48L2gzPgogICAgICAgIDxwPlRoZSBmb3VuZGF0aW9uIHVuZGVybmVhdGggYWxsIG9mIHRoZSBhYm92ZS48L3A+CiAgICAgIDwvbGk+CiAgICA8L29sPgogIDwvc2VjdGlvbj4KCiAgPCEtLSA9PT09PT09PT09PT0gNi4gUFJPSkVDVFMgPT09PT09PT09PT09IC0tPgogIDxzZWN0aW9uIGNsYXNzPSJzY2VuZSBzY2VuZS10YWxsIiBpZD0icHJvamVjdHMiIGRhdGEtc2NlbmU9InByb2plY3RzIiBhcmlhLWxhYmVsbGVkYnk9InByb2plY3RzLXRpdGxlIj4KICAgIDxkaXYgY2xhc3M9InBpbiI+CiAgICAgIDxkaXYgY2xhc3M9ImNoYXB0ZXIiPgogICAgICAgIDxzcGFuIGNsYXNzPSJjaGFwdGVyLW5vIj4wNjwvc3Bhbj4KICAgICAgICA8aDIgaWQ9InByb2plY3RzLXRpdGxlIiBjbGFzcz0iY2hhcHRlci10aXRsZSI+QnVpbHQgaXQgbXlzZWxmPC9oMj4KICAgICAgICA8cCBjbGFzcz0iY2hhcHRlci1zdWIiPldoZXJlIHRoZSBwcmFjdGljZSBhY3R1YWxseSBoYXBwZW5zLjwvcD4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KICAgIDxkaXYgY2xhc3M9ImNhbGxvdXQtZmxvdyI+CiAgICAgIDxhcnRpY2xlIGNsYXNzPSJjYWxsb3V0IiBkYXRhLXJldmVhbD4KICAgICAgICA8aDM+QSBQQywgZnJvbSBwYXJ0czwvaDM+CiAgICAgICAgPHA+U3BlY2lmaWVkIHRoZSBwYXJ0cywgYXNzZW1ibGVkIHRoZSBtYWNoaW5lLCBhbmQgaW5zdGFsbGVkIGFuZCBjb25maWd1cmVkIHRoZSBvcGVyYXRpbmcgc3lzdGVtIG9uIGl0LiBLbm93aW5nIHdoYXQgYSB3b3JraW5nIGJ1aWxkIGxvb2tzIGxpa2UgZnJvbSB0aGUgaW5zaWRlIGlzIHdoYXQgbWFrZXMgYSBkZWFkIG9uZSBkaWFnbm9zYWJsZS48L3A+CiAgICAgIDwvYXJ0aWNsZT4KICAgICAgPGFydGljbGUgY2xhc3M9ImNhbGxvdXQiIGRhdGEtcmV2ZWFsPgogICAgICAgIDxoMz5BIGhvbWUgbGFiPC9oMz4KICAgICAgICA8cD5LZWVwIGEgbGFiIG9mIHZpcnR1YWwgbWFjaGluZXMgZm9yIGhhbmRzLW9uIHByYWN0aWNlIG91dHNpZGUgb2YgY291cnNld29yazogaW5zdGFsbHMsIGNvbmZpZ3VyYXRpb24sIGJyZWFraW5nIHRoaW5ncyBvbiBwdXJwb3NlIGFuZCBwdXR0aW5nIHRoZW0gYmFjay48L3A+CiAgICAgIDwvYXJ0aWNsZT4KICAgICAgPGFydGljbGUgY2xhc3M9ImNhbGxvdXQiIGRhdGEtcmV2ZWFsPgogICAgICAgIDxoMz5Cb2R5V2VsbG5lc3NBSSwgc2hpcHBlZDwvaDM+CiAgICAgICAgPHA+QW4gQUkgcG93ZXJlZCB3ZWxsbmVzcyBwbGF0Zm9ybSBkZXNpZ25lZCwgbGF1bmNoZWQgYW5kIHN1cHBvcnRlZCBzb2xvLiBOb3QgaW5mcmFzdHJ1Y3R1cmUsIGJ1dCBpdCBpcyBhIHRoaW5nIHRoYXQgZXhpc3RzLCB0aGF0IHVzZXJzIGhpdCwgYW5kIHRoYXQgSSBoYWQgdG8ga2VlcCB3b3JraW5nLjwvcD4KICAgICAgPC9hcnRpY2xlPgogICAgPC9kaXY+CiAgPC9zZWN0aW9uPgoKICA8IS0tID09PT09PT09PT09PSA3LiBDRVJUSUZJQ0FUSU9OUyA9PT09PT09PT09PT0gLS0+CiAgPHNlY3Rpb24gY2xhc3M9InNjZW5lIHNjZW5lLW1pZCIgaWQ9ImNlcnRpZmljYXRpb25zIiBkYXRhLXNjZW5lPSJjZXJ0aWZpY2F0aW9ucyIgYXJpYS1sYWJlbGxlZGJ5PSJjZXJ0LXRpdGxlIj4KICAgIDxkaXYgY2xhc3M9InBpbiBwaW4tdG9wIj4KICAgICAgPGRpdiBjbGFzcz0iY2hhcHRlciBjaGFwdGVyLWNlbnRlciI+CiAgICAgICAgPHNwYW4gY2xhc3M9ImNoYXB0ZXItbm8iPjA3PC9zcGFuPgogICAgICAgIDxoMiBpZD0iY2VydC10aXRsZSIgY2xhc3M9ImNoYXB0ZXItdGl0bGUiPkluIHByb2dyZXNzPC9oMj4KICAgICAgICA8cCBjbGFzcz0iY2hhcHRlci1zdWIiPk5vdCBmaW5pc2hlZCB5ZXQsIHNvIG5vdCBjbGFpbWVkIGFzIGZpbmlzaGVkLjwvcD4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KICAgIDxkaXYgY2xhc3M9ImNlcnQtcm93Ij4KICAgICAgPGFydGljbGUgY2xhc3M9ImNlcnQiIGRhdGEtcmV2ZWFsPgogICAgICAgIDxzcGFuIGNsYXNzPSJjZXJ0LXN0YXR1cyI+SW4gcHJvZ3Jlc3M8L3NwYW4+CiAgICAgICAgPGgzPkNvbXBUSUEgQSs8L2gzPgogICAgICAgIDxwPlRoZSBoYXJkd2FyZSBhbmQgdHJvdWJsZXNob290aW5nIHN0YW5kYXJkIGZvciBzdXBwb3J0IHJvbGVzLjwvcD4KICAgICAgPC9hcnRpY2xlPgogICAgICA8YXJ0aWNsZSBjbGFzcz0iY2VydCIgZGF0YS1yZXZlYWw+CiAgICAgICAgPHNwYW4gY2xhc3M9ImNlcnQtc3RhdHVzIj5JbiBwcm9ncmVzczwvc3Bhbj4KICAgICAgICA8aDM+R29vZ2xlIElUIFN1cHBvcnQgUHJvZmVzc2lvbmFsPC9oMz4KICAgICAgICA8cD5FbmQgdG8gZW5kIHN1cHBvcnQgZnVuZGFtZW50YWxzLCBmcm9tIHRoZSBoZWxwZGVzayBvdXQgdG8gdGhlIG5ldHdvcmsuPC9wPgogICAgICA8L2FydGljbGU+CiAgICAgIDxhcnRpY2xlIGNsYXNzPSJjZXJ0IiBkYXRhLXJldmVhbD4KICAgICAgICA8c3BhbiBjbGFzcz0iY2VydC1zdGF0dXMiPkluIHByb2dyZXNzPC9zcGFuPgogICAgICAgIDxoMz5Hb29nbGUgQUkgRXNzZW50aWFsczwvaDM+CiAgICAgICAgPHA+VXNpbmcgQUkgdG9vbHMgaW4gZGF5IHRvIGRheSB3b3JrIHdpdGhvdXQgaGFuZGluZyBvdmVyIGp1ZGdlbWVudC48L3A+CiAgICAgIDwvYXJ0aWNsZT4KICAgIDwvZGl2PgogIDwvc2VjdGlvbj4KCiAgPCEtLSA9PT09PT09PT09PT0gNy4gQ09OVEFDVCA9PT09PT09PT09PT0gLS0+CiAgPHNlY3Rpb24gY2xhc3M9InNjZW5lIHNjZW5lLW1pZCIgaWQ9ImNvbnRhY3QiIGRhdGEtc2NlbmU9ImNvbnRhY3QiIGFyaWEtbGFiZWxsZWRieT0iY29udGFjdC10aXRsZSI+CiAgICA8ZGl2IGNsYXNzPSJwaW4gcGluLXRvcCI+CiAgICAgIDxkaXYgY2xhc3M9ImNvbnRhY3QtYmxvY2siIGRhdGEtcmV2ZWFsPgogICAgICAgIDxwIGNsYXNzPSJleWVicm93Ij5FbmQgb2YgdGhlIGxpbmU8L3A+CiAgICAgICAgPGgyIGlkPSJjb250YWN0LXRpdGxlIiBjbGFzcz0iY29udGFjdC10aXRsZSI+TGV0J3MgdGFsay48L2gyPgogICAgICAgIDxwIGNsYXNzPSJjb250YWN0LXN1YiI+SWYgeW91IG5lZWQgc29tZW9uZSB3aG8gd2lsbCBwaWNrIHVwIHRoZSB0aWNrZXQsIGZpbmQgdGhlIGNhdXNlIGFuZCB0ZWxsIHRoZSB1c2VyIHdoYXQgaGFwcGVuZWQgaW4gcGxhaW4gd29yZHMsIEkgYW0gYXZhaWxhYmxlLjwvcD4KICAgICAgICA8YSBjbGFzcz0iYnRuIGJ0bi1wcmltYXJ5IGJ0bi1kb3dubG9hZCIgZGF0YS1yZXN1bWUgaHJlZj0iQWJkdWxiYXNpdC1Nb21pbi1SZXN1bWUucGRmIiBkb3dubG9hZD0iQWJkdWxiYXNpdC1Nb21pbi1SZXN1bWUucGRmIj4KICAgICAgICAgIDxzcGFuIGFyaWEtaGlkZGVuPSJ0cnVlIj4mIzg1OTU7PC9zcGFuPiA8c3BhbiBjbGFzcz0iZGwtbGFiZWwiPkRvd25sb2FkIHJlc3VtZSAoUERGKTwvc3Bhbj4KICAgICAgICA8L2E+CiAgICAgICAgPGRpdiBjbGFzcz0iY29udGFjdC1ncmlkIj4KICAgICAgICAgIDxhIGNsYXNzPSJjY2FyZCIgaHJlZj0ibWFpbHRvOmJhc2l0bW9taW4wMUBnbWFpbC5jb20iPgogICAgICAgICAgICA8c3BhbiBjbGFzcz0iY2NhcmQtayI+RW1haWw8L3NwYW4+CiAgICAgICAgICAgIDxzcGFuIGNsYXNzPSJjY2FyZC12Ij5iYXNpdG1vbWluMDFAZ21haWwuY29tPC9zcGFuPgogICAgICAgICAgPC9hPgogICAgICAgICAgPGEgY2xhc3M9ImNjYXJkIiBocmVmPSJ0ZWw6KzE0MTY1MjY4MjAyIj4KICAgICAgICAgICAgPHNwYW4gY2xhc3M9ImNjYXJkLWsiPlBob25lPC9zcGFuPgogICAgICAgICAgICA8c3BhbiBjbGFzcz0iY2NhcmQtdiI+KzEgNDE2IDUyNiA4MjAyPC9zcGFuPgogICAgICAgICAgPC9hPgogICAgICAgICAgPGEgY2xhc3M9ImNjYXJkIiBocmVmPSJodHRwczovL3d3dy5saW5rZWRpbi5jb20vaW4vYWJtb21pbjEiIHRhcmdldD0iX2JsYW5rIiByZWw9Im5vb3BlbmVyIj4KICAgICAgICAgICAgPHNwYW4gY2xhc3M9ImNjYXJkLWsiPkxpbmtlZEluPC9zcGFuPgogICAgICAgICAgICA8c3BhbiBjbGFzcz0iY2NhcmQtdiI+bGlua2VkaW4uY29tL2luL2FibW9taW4xPC9zcGFuPgogICAgICAgICAgPC9hPgogICAgICAgICAgPGRpdiBjbGFzcz0iY2NhcmQgY2NhcmQtc3RhdGljIj4KICAgICAgICAgICAgPHNwYW4gY2xhc3M9ImNjYXJkLWsiPkxvY2F0aW9uPC9zcGFuPgogICAgICAgICAgICA8c3BhbiBjbGFzcz0iY2NhcmQtdiI+RXRvYmljb2tlLCBPTjwvc3Bhbj4KICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZGl2PgogICAgICAgIDxmb290ZXIgY2xhc3M9InNpdGUtZm9vdGVyIj4KICAgICAgICAgIDxwPkJ1aWx0IHdpdGggVGhyZWUuanMuIEV2ZXJ5IHBpeGVsIGVhcm5lZC48L3A+CiAgICAgICAgPC9mb290ZXI+CiAgICAgIDwvZGl2PgogICAgPC9kaXY+CiAgPC9zZWN0aW9uPgoKPC9tYWluPgoKPGJ1dHRvbiBpZD0ibW90aW9uLXRvZ2dsZSIgY2xhc3M9Im1vdGlvbi10b2dnbGUiIHR5cGU9ImJ1dHRvbiIgYXJpYS1wcmVzc2VkPSJmYWxzZSI+CiAgPHNwYW4gY2xhc3M9Im10LWRvdCIgYXJpYS1oaWRkZW49InRydWUiPjwvc3Bhbj48c3BhbiBjbGFzcz0ibXQtbGFiZWwiPk1vdGlvbiBvbjwvc3Bhbj4KPC9idXR0b24+Cgo8bm9zY3JpcHQ+CiAgPHN0eWxlPiNsb2FkZXJ7ZGlzcGxheTpub25lfSNzdGFnZXtkaXNwbGF5Om5vbmV9Ym9keXtvdmVyZmxvdzphdXRvfTwvc3R5bGU+Cjwvbm9zY3JpcHQ+Cgo8c2NyaXB0IHR5cGU9ImltcG9ydG1hcCI+CnsgImltcG9ydHMiOiB7ICJ0aHJlZSI6ICJodHRwczovL3VucGtnLmNvbS90aHJlZUAwLjE2MC4wL2J1aWxkL3RocmVlLm1vZHVsZS5qcyIgfSB9Cjwvc2NyaXB0Pgo8c2NyaXB0IHR5cGU9Im1vZHVsZSIgc3JjPSJqcy9hcHAuanMiPjwvc2NyaXB0Pgo8c2NyaXB0IHR5cGU9Im1vZHVsZSI+Ci8qIFNlcnZlZCBmcm9tIGFueSBvcmRpbmFyeSBob3N0LCB0aGUgZG93bmxvYWQgYXR0cmlidXRlIG9uIHRoZXNlIGxpbmtzIGlzIGFsbAogICB0aGF0IGlzIG5lZWRlZC4gSW5zaWRlIHRoZSBjbGF1ZGUuYWkgYXJ0aWZhY3Qgdmlld2VyIGEgcGFnZSBpcyBuZXZlciBncmFudGVkCiAgIGRvd25sb2FkIHBlcm1pc3Npb24sIHNvIHRoZSBwbGFpbiBsaW5rIHNpbGVudGx5IGRvZXMgbm90aGluZzsgdGhlcmUgdGhlCiAgIGBkb3dubG9hZHNgIGNhcGFiaWxpdHkgaGFzIHRvIGhhbmQgdGhlIGZpbGUgb3ZlciBpbnN0ZWFkLiBSZXNvbHZlIGl0IGluIHRoZQogICBiYWNrZ3JvdW5kIGFuZCBvbmx5IHRha2UgdGhlIGNsaWNrIHdoZW4gaXQgaXMgYWN0dWFsbHkgYXZhaWxhYmxlLCBzbyB0aGUKICAgbm9ybWFsIGxpbmsga2VlcHMgd29ya2luZyBldmVyeXdoZXJlIGVsc2UuICovCmxldCBzYXZlciA9IG51bGw7CmlmICh3aW5kb3cuY2xhdWRlICYmIHR5cGVvZiB3aW5kb3cuY2xhdWRlLnVzZSA9PT0gJ2Z1bmN0aW9uJykgewogIHdpbmRvdy5jbGF1ZGUudXNlKCdkb3dubG9hZHMnKS50aGVuKChkKSA9PiB7IHNhdmVyID0gZDsgfSkuY2F0Y2goKCkgPT4ge30pOwp9Cgpmb3IgKGNvbnN0IGxpbmsgb2YgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnYVtkYXRhLXJlc3VtZV0nKSkgewogIGxpbmsuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCAoZXZlbnQpID0+IHsKICAgIGlmICghc2F2ZXIpIHJldHVybjsKICAgIGV2ZW50LnByZXZlbnREZWZhdWx0KCk7CiAgICBjb25zdCBsYWJlbCA9IGxpbmsucXVlcnlTZWxlY3RvcignLmRsLWxhYmVsJyk7CiAgICBjb25zdCBvcmlnaW5hbCA9IGxhYmVsLnRleHRDb250ZW50OwogICAgY29uc3Qgc2F5ID0gKG1zZywgaG9sZCkgPT4gewogICAgICBsYWJlbC50ZXh0Q29udGVudCA9IG1zZzsKICAgICAgaWYgKGhvbGQpIHNldFRpbWVvdXQoKCkgPT4geyBsYWJlbC50ZXh0Q29udGVudCA9IG9yaWdpbmFsOyB9LCBob2xkKTsKICAgIH07CiAgICBzYXkoJ1ByZXBhcmluZy4uLicpOwogICAgZmV0Y2gobGluay5nZXRBdHRyaWJ1dGUoJ2hyZWYnKSkKICAgICAgLnRoZW4oKHIpID0+IHIuYmxvYigpKQogICAgICAudGhlbigoYmxvYikgPT4gc2F2ZXIuc2F2ZSh7IGZpbGVuYW1lOiAnQWJkdWxiYXNpdC1Nb21pbi1SZXN1bWUucGRmJywgZGF0YTogYmxvYiB9KSkKICAgICAgLnRoZW4oKCkgPT4gc2F5KG9yaWdpbmFsKSkKICAgICAgLmNhdGNoKChlcnIpID0+IHsKICAgICAgICAvLyBTYXlpbmcgbm8gaXMgbm90IGFuIGVycm9yLCBhbmQgbmV2ZXIgZ2V0cyByZXRyaWVkIGF0IHRoZW0uCiAgICAgICAgaWYgKGVyciAmJiBlcnIuY29kZSA9PT0gJ2RlY2xpbmVkJykgc2F5KG9yaWdpbmFsKTsKICAgICAgICBlbHNlIHNheSgnRG93bmxvYWQgdW5hdmFpbGFibGUnLCAyNjAwKTsKICAgICAgfSk7CiAgfSk7Cn0KPC9zY3JpcHQ+CjwvYm9keT4KPC9odG1sPgoKPC9ib2R5PjwvaHRtbD4=
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Abdulbasit Momin · IT Support Technician</title>
+<meta name="description" content="Scroll-driven 3D resume of Abdulbasit Momin, an IT support technician in Etobicoke, Ontario. Hardware troubleshooting, networking fundamentals, Active Directory, ticketing and clear user communication." />
+<meta name="author" content="Abdulbasit Momin" />
+<meta name="theme-color" content="#050810" />
+<meta name="robots" content="index, follow" />
+
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Abdulbasit Momin · IT Support Technician" />
+<meta property="og:description" content="I keep systems running and users working. A scroll-driven 3D resume: hardware, networking, helpdesk." />
+<meta property="og:locale" content="en_CA" />
+<meta property="profile:first_name" content="Abdulbasit" />
+<meta property="profile:last_name" content="Momin" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Abdulbasit Momin · IT Support Technician" />
+<meta name="twitter:description" content="I keep systems running and users working. A scroll-driven 3D resume." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23050810'/%3E%3Cpath d='M8 20.5 13 10h2.2l5 10.5h-2.4l-1.05-2.3h-5.3L10.4 20.5H8Zm4.3-4.2h3.6l-1.8-3.95-1.8 3.95Z' fill='%232f81f7'/%3E%3Ccircle cx='23' cy='22' r='2' fill='%23f5a623'/%3E%3C/svg%3E" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Abdulbasit Momin",
+  "jobTitle": "IT Support Technician",
+  "email": "mailto:basitmomin01@gmail.com",
+  "telephone": "+1-416-526-8202",
+  "address": { "@type": "PostalAddress", "addressLocality": "Etobicoke", "addressRegion": "ON", "addressCountry": "CA" },
+  "sameAs": ["https://www.linkedin.com/in/abmomin1"],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Gujarat Technological University" }
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#hardware">Skip to the resume content</a>
+
+<div id="loader" role="status" aria-live="polite">
+  <div class="loader-inner">
+    <div class="loader-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <p class="loader-label">Booting the scene</p>
+    <div class="loader-bar"><i id="loader-fill"></i></div>
+    <p class="loader-pct"><span id="loader-pct">0</span>%</p>
+  </div>
+</div>
+
+<canvas id="stage" aria-hidden="true"></canvas>
+<div id="grain" aria-hidden="true"></div>
+<div id="vignette" aria-hidden="true"></div>
+<div id="flash" aria-hidden="true"></div>
+
+<header class="topbar">
+  <span class="topbar-name">Abdulbasit Momin</span>
+  <nav class="topbar-nav" aria-label="Section">
+    <span id="chapter-label">Intro</span>
+    <a class="topbar-cta" href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="progress-rail" aria-hidden="true"><i id="progress-fill"></i></div>
+
+<main id="scroll-root">
+
+  <!-- ============ 0. HERO ============ -->
+  <section class="scene" id="hero" data-scene="hero" aria-labelledby="hero-title">
+    <div class="pin">
+      <div class="hero-block">
+        <p class="eyebrow">Etobicoke, Ontario · Open to work</p>
+        <h1 id="hero-title" class="hero-name">Abdulbasit<span>Momin</span></h1>
+        <p class="hero-role">IT Support Technician</p>
+        <p class="hero-pitch">I keep systems running and users working.</p>
+        <p class="hero-sub">Currently an AI Evaluator at Mercor, and training as a Junior IT Analyst with NPower Canada. Four years before that supporting users and software teams as a Business Analyst and product owner.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:basitmomin01@gmail.com">Email me</a>
+          <a class="btn btn-ghost" data-resume href="Abdulbasit-Momin-Resume.pdf" download="Abdulbasit-Momin-Resume.pdf"><span class="dl-label">Download resume</span></a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/abmomin1" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <i class="scroll-track"><b></b></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 1. HARDWARE ============ -->
+  <section class="scene scene-tall" id="hardware" data-scene="hardware" aria-labelledby="hardware-title">
+    <div class="pin">
+      <div class="chapter">
+        <span class="chapter-no">01</span>
+        <h2 id="hardware-title" class="chapter-title">Hardware</h2>
+        <p class="chapter-sub">Down to the board, where the problem usually is.</p>
+      </div>
+    </div>
+    <div class="callout-flow">
+      <article class="callout" data-reveal >
+        <h3>Hardware troubleshooting</h3>
+        <p>Desktops and laptops: isolate the faulty part, test it, replace it, confirm the user is back to work.</p>
+      </article>
+      <article class="callout" data-reveal >
+        <h3>Operating system configuration</h3>
+        <p>Windows and Linux setup, disk partitions and filesystems. Practised through the NPower Canada Junior IT Analyst program.</p>
+      </article>
+      <article class="callout" data-reveal >
+        <h3>Software and printers</h3>
+        <p>Installations, drivers and the peripherals nobody volunteers for. Printer support is on the list because it has to be.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 2. NETWORK ============ -->
+  <section class="scene scene-tall" id="network" data-scene="network" aria-labelledby="network-title">
+    <div class="pin">
+      <div class="chapter">
+        <span class="chapter-no">02</span>
+        <h2 id="network-title" class="chapter-title">Network</h2>
+        <p class="chapter-sub">Follow the packet until it stops.</p>
+      </div>
+    </div>
+    <div class="callout-flow">
+      <article class="callout" data-reveal >
+        <h3>Networking fundamentals</h3>
+        <p>TCP/IP, DNS and DHCP, plus VPN basics and Wi-Fi troubleshooting. Enough to tell a client problem from a network one.</p>
+      </article>
+      <article class="callout" data-reveal >
+        <h3>Directory services</h3>
+        <p>Active Directory and OpenLDAP: user accounts, access and the password reset that unblocks someone's morning.</p>
+      </article>
+      <article class="callout" data-reveal >
+        <h3>Documentation and change</h3>
+        <p>Core service and support issues handled with documentation and change management practice, so the next person inherits a trail.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 3. HELPDESK ============ -->
+  <section class="scene scene-tall warm" id="helpdesk" data-scene="helpdesk" aria-labelledby="helpdesk-title">
+    <div class="pin">
+      <div class="chapter">
+        <span class="chapter-no">03</span>
+        <h2 id="helpdesk-title" class="chapter-title">Helpdesk</h2>
+        <p class="chapter-sub">The part that is actually about people.</p>
+      </div>
+    </div>
+    <div class="callout-flow">
+      <article class="callout warm" data-reveal >
+        <h3>Ticketing systems</h3>
+        <p>Jira and Confluence: triage what comes in, track it honestly, close it when it is genuinely fixed.</p>
+      </article>
+      <article class="callout warm" data-reveal >
+        <h3>First point of contact</h3>
+        <p>At Sarjen I was the first person business users came to with application issues. I diagnosed them and coordinated the fix with the development team.</p>
+      </article>
+      <article class="callout warm" data-reveal >
+        <h3>Plain language</h3>
+        <p>User guides and process documentation written without jargon, for people who do not want a lesson, they want their day back.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 4. SKILLS ============ -->
+  <section class="scene scene-mid" id="skills" data-scene="skills" aria-labelledby="skills-title">
+    <div class="pin pin-top">
+      <div class="chapter">
+        <span class="chapter-no">04</span>
+        <h2 id="skills-title" class="chapter-title">Toolkit</h2>
+        <p class="chapter-sub">Hover an orb, or read the list. Same facts either way.</p>
+      </div>
+      <div class="skills-panel" data-reveal>
+        <div class="skill-group">
+          <h3>Operating systems</h3>
+          <ul id="sg-os"></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Networking</h3>
+          <ul id="sg-net"></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Tools</h3>
+          <ul id="sg-tools"></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Support</h3>
+          <ul id="sg-support"></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Data and scripting</h3>
+          <ul id="sg-data"></ul>
+        </div>
+        <div class="skill-group">
+          <h3>How I work</h3>
+          <ul id="sg-soft"></ul>
+        </div>
+        <div class="skill-group skill-group-soft">
+          <h3>Familiar with</h3>
+          <p class="skill-note">Labs and trials, not yet day to day.</p>
+          <ul id="sg-familiar"></ul>
+        </div>
+      </div>
+      <div id="orb-tip" class="orb-tip" aria-hidden="true"><strong></strong><span></span></div>
+    </div>
+  </section>
+
+  <!-- ============ 5. TIMELINE ============ -->
+  <section class="scene scene-xtall" id="experience" data-scene="experience" aria-labelledby="experience-title">
+    <div class="pin pin-top">
+      <div class="chapter">
+        <span class="chapter-no">05</span>
+        <h2 id="experience-title" class="chapter-title">The road here</h2>
+        <p class="chapter-sub">Where I am now, and how I got here.</p>
+      </div>
+    </div>
+    <ol class="timeline">
+      <li class="milestone" data-reveal>
+        <p class="ms-date">May 2026 to present <span class="ms-tag ms-now">Current</span></p>
+        <h3>AI Evaluator, freelance<span>Mercor, Remote</span></h3>
+        <p>Work a high volume queue against strict throughput and quality targets, applying a detailed rubric to every item and documenting findings consistently. Fully remote and unsupervised, so the prioritising and the follow through are mine. The subject matter is AI output; the discipline is the one a ticket queue runs on.</p>
+      </li>
+      <li class="milestone" data-reveal>
+        <p class="ms-date">Oct 2026 to Jan 2027 <span class="ms-tag ms-prog">In progress</span></p>
+        <h3>Junior IT Analyst Program<span>NPower Canada, Online</span></h3>
+        <p>A 15 week intensive on IT fundamentals, networking and project management. Operating system configuration, directory services, DNS, DHCP and TCP/IP, plus Agile delivery.</p>
+      </li>
+      <li class="milestone" data-reveal>
+        <p class="ms-date">Jul 2025 to Apr 2026</p>
+        <h3>BodyWellnessAI<span>Independent product, Remote</span></h3>
+        <p>Designed and launched an AI powered wellness platform on my own. Set the roadmap, owned quality end to end by reproducing defects and verifying fixes, and wrote the user guides and release notes.</p>
+      </li>
+      <li class="milestone" data-reveal>
+        <p class="ms-date">Jan 2022 to Jun 2025</p>
+        <h3>Business Analyst<span>Sarjen, Ahmedabad, India</span></h3>
+        <p>First point of contact for business users reporting application issues. Reproduced defects with detailed replication steps that sped up QA and development handoffs, authored user guides, and built 8 Power BI dashboards that improved reporting efficiency by about 20 percent.</p>
+      </li>
+      <li class="milestone" data-reveal>
+        <p class="ms-date">May 2022</p>
+        <h3>Bachelor of Engineering, Information Technology<span>Gujarat Technological University, Ahmedabad, India</span></h3>
+        <p>The foundation underneath all of the above.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ 6. PROJECTS ============ -->
+  <section class="scene scene-tall" id="projects" data-scene="projects" aria-labelledby="projects-title">
+    <div class="pin">
+      <div class="chapter">
+        <span class="chapter-no">06</span>
+        <h2 id="projects-title" class="chapter-title">Built it myself</h2>
+        <p class="chapter-sub">Where the practice actually happens.</p>
+      </div>
+    </div>
+    <div class="callout-flow">
+      <article class="callout" data-reveal>
+        <h3>A PC, from parts</h3>
+        <p>Specified the parts, assembled the machine, and installed and configured the operating system on it. Knowing what a working build looks like from the inside is what makes a dead one diagnosable.</p>
+      </article>
+      <article class="callout" data-reveal>
+        <h3>A home lab</h3>
+        <p>Keep a lab of virtual machines for hands-on practice outside of coursework: installs, configuration, breaking things on purpose and putting them back.</p>
+      </article>
+      <article class="callout" data-reveal>
+        <h3>BodyWellnessAI, shipped</h3>
+        <p>An AI powered wellness platform designed, launched and supported solo. Not infrastructure, but it is a thing that exists, that users hit, and that I had to keep working.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 7. CERTIFICATIONS ============ -->
+  <section class="scene scene-mid" id="certifications" data-scene="certifications" aria-labelledby="cert-title">
+    <div class="pin pin-top">
+      <div class="chapter chapter-center">
+        <span class="chapter-no">07</span>
+        <h2 id="cert-title" class="chapter-title">In progress</h2>
+        <p class="chapter-sub">Not finished yet, so not claimed as finished.</p>
+      </div>
+    </div>
+    <div class="cert-row">
+      <article class="cert" data-reveal>
+        <span class="cert-status">In progress</span>
+        <h3>CompTIA A+</h3>
+        <p>The hardware and troubleshooting standard for support roles.</p>
+      </article>
+      <article class="cert" data-reveal>
+        <span class="cert-status">In progress</span>
+        <h3>Google IT Support Professional</h3>
+        <p>End to end support fundamentals, from the helpdesk out to the network.</p>
+      </article>
+      <article class="cert" data-reveal>
+        <span class="cert-status">In progress</span>
+        <h3>Google AI Essentials</h3>
+        <p>Using AI tools in day to day work without handing over judgement.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 7. CONTACT ============ -->
+  <section class="scene scene-mid" id="contact" data-scene="contact" aria-labelledby="contact-title">
+    <div class="pin pin-top">
+      <div class="contact-block" data-reveal>
+        <p class="eyebrow">End of the line</p>
+        <h2 id="contact-title" class="contact-title">Let's talk.</h2>
+        <p class="contact-sub">If you need someone who will pick up the ticket, find the cause and tell the user what happened in plain words, I am available.</p>
+        <a class="btn btn-primary btn-download" data-resume href="Abdulbasit-Momin-Resume.pdf" download="Abdulbasit-Momin-Resume.pdf">
+          <span aria-hidden="true">&#8595;</span> <span class="dl-label">Download resume (PDF)</span>
+        </a>
+        <div class="contact-grid">
+          <a class="ccard" href="mailto:basitmomin01@gmail.com">
+            <span class="ccard-k">Email</span>
+            <span class="ccard-v">basitmomin01@gmail.com</span>
+          </a>
+          <a class="ccard" href="tel:+14165268202">
+            <span class="ccard-k">Phone</span>
+            <span class="ccard-v">+1 416 526 8202</span>
+          </a>
+          <a class="ccard" href="https://www.linkedin.com/in/abmomin1" target="_blank" rel="noopener">
+            <span class="ccard-k">LinkedIn</span>
+            <span class="ccard-v">linkedin.com/in/abmomin1</span>
+          </a>
+          <div class="ccard ccard-static">
+            <span class="ccard-k">Location</span>
+            <span class="ccard-v">Etobicoke, ON</span>
+          </div>
+        </div>
+        <footer class="site-footer">
+          <p>Built with Three.js. Every pixel earned.</p>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false">
+  <span class="mt-dot" aria-hidden="true"></span><span class="mt-label">Motion on</span>
+</button>
+
+<noscript>
+  <style>#loader{display:none}#stage{display:none}body{overflow:auto}</style>
+</noscript>
+
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module" src="js/app.js"></script>
+<script type="module">
+/* Served from any ordinary host, the download attribute on these links is all
+   that is needed. Inside the claude.ai artifact viewer a page is never granted
+   download permission, so the plain link silently does nothing; there the
+   `downloads` capability has to hand the file over instead. Resolve it in the
+   background and only take the click when it is actually available, so the
+   normal link keeps working everywhere else. */
+let saver = null;
+if (window.claude && typeof window.claude.use === 'function') {
+  window.claude.use('downloads').then((d) => { saver = d; }).catch(() => {});
+}
+
+for (const link of document.querySelectorAll('a[data-resume]')) {
+  link.addEventListener('click', (event) => {
+    if (!saver) return;
+    event.preventDefault();
+    const label = link.querySelector('.dl-label');
+    const original = label.textContent;
+    const say = (msg, hold) => {
+      label.textContent = msg;
+      if (hold) setTimeout(() => { label.textContent = original; }, hold);
+    };
+    say('Preparing...');
+    fetch(link.getAttribute('href'))
+      .then((r) => r.blob())
+      .then((blob) => saver.save({ filename: 'Abdulbasit-Momin-Resume.pdf', data: blob }))
+      .then(() => say(original))
+      .catch((err) => {
+        // Saying no is not an error, and never gets retried at them.
+        if (err && err.code === 'declined') say(original);
+        else say('Download unavailable', 2600);
+      });
+  });
+}
+</script>
+</body>
+</html>
+
+</body></html>
