@@ -502,7 +502,7 @@ function networkZone(q) {
 
   // Ceiling strips.
   for (let i = 0; i < 6; i++) {
-    const strip = new THREE.Mesh(new THREE.BoxGeometry(2.8, 0.18, 11), emissive(0x16263f, C.blueSoft, 3.4));
+    const strip = new THREE.Mesh(new THREE.BoxGeometry(2.8, 0.18, 11), emissive(0x16263f, C.blueSoft, 1.6));
     strip.position.set(0, 11.4, -76 + i * 30);
     g.add(strip);
     const gl = glow(C.blueSoft, 22, 0.2);
@@ -825,7 +825,7 @@ function skillsZone(q) {
     );
     hit.userData.orbIndex = i;
     holder.add(hit);
-    const gl = glow(b.col, 2.6 * b.size, 0.5 * b.size);
+    const gl = glow(b.col, 1.6 * b.size, 0.22 * b.size);
     holder.add(gl);
     const lb = label(o.label, { color: b.ink, px: 36, height: 0.66 * (b.size < 1 ? 0.86 : 1) });
     lb.position.set(0, 1.1, 0);
@@ -887,7 +887,7 @@ function skillsZone(q) {
       o.holder.scale.setScalar((0.8 + face * 0.34) * (0.45 + settle * 0.55));
       o.lb.material.opacity = (0.06 + face * 0.94) * settle;
       o.gl.material.opacity = (0.16 + face * 0.34) * settle;
-      o.mesh.material.emissiveIntensity = 1.4 + face * 1.7;
+      o.mesh.material.emissiveIntensity = 0.9 + face * 0.9;
     });
 
     linkPairs.forEach((pair, k) => {
