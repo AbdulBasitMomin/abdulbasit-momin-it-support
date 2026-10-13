@@ -5,7 +5,7 @@
    ------------------------------------------------------------------ */
 
 import * as THREE from 'three';
-import { ORBS, MILESTONE_TAGS, CERT_TAGS } from './content.js';
+import { MILESTONE_TAGS, CERT_TAGS } from './content.js';
 
 export const C = {
   bg: 0x050810,
@@ -779,125 +779,38 @@ function skillsZone(q) {
   const g = new THREE.Group();
   g.position.set(0, -20, -430);
 
-  const core = new THREE.Mesh(
-    new THREE.IcosahedronGeometry(2.6, 1),
-    new THREE.MeshBasicMaterial({ color: C.blue, wireframe: true, transparent: true, opacity: 0.2 })
+  /* This used to be a sphere of twenty-one labelled orbs. On a phone the
+     labels landed on top of each other and on top of the skills list, which
+     made the one section whose whole job is to be read the hardest to read.
+     The list in the HTML already carries every fact, so the 3D here is now
+     only a backdrop: a slow wireframe shell well behind the text, quiet
+     enough that nothing competes with the words in front of it. */
+  const shell = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(17, 2),
+    new THREE.MeshBasicMaterial({ color: C.blue, wireframe: true, transparent: true, opacity: 0.075 })
   );
-  g.add(core);
-  g.add(glow(C.blue, 12, 0.28));
+  g.add(shell);
 
-  /* Four latitude bands on one sphere, one per group of skills, each evenly
-     spaced around its own ring and coloured by group. The old arrangement gave
-     every orb its own radius, tilt and orbit speed, so over time they drifted
-     into clumps on one side with their labels stacked on each other. Even
-     spacing on a shared sphere cannot clump, and it stays balanced at every
-     moment rather than only at the one the author happened to look at. */
-  const R = 9.6;
-  // The last band is the familiar-with tier: muted and smaller, so it does not
-  // claim the same standing as the tools with real hours behind them.
-  const BANDS = [
-    { lat: 0.78, col: C.blue, ink: '#cfe0ff', size: 1 },
-    { lat: 0.39, col: C.blueSoft, ink: '#dbe9ff', size: 1 },
-    { lat: 0, col: C.amber, ink: '#ffc96b', size: 1 },
-    { lat: -0.39, col: C.amberSoft, ink: '#ffe2b0', size: 1 },
-    { lat: -0.78, col: 0x7f93b4, ink: '#9fb3d0', size: 0.72 }
-  ];
+  const inner = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(9.4, 1),
+    new THREE.MeshBasicMaterial({ color: C.blueSoft, wireframe: true, transparent: true, opacity: 0.1 })
+  );
+  g.add(inner);
 
-  const counts = [0, 0, 0, 0, 0];
-  ORBS.forEach((o) => counts[o.ring]++);
-  const seen = [0, 0, 0, 0, 0];
-
-  const orbs = [];
-  const bandRows = [[], [], [], [], []];
-
-  ORBS.forEach((o, i) => {
-    const b = BANDS[o.ring];
-    const idx = seen[o.ring]++;
-
-    const holder = new THREE.Group();
-    const mesh = new THREE.Mesh(new THREE.SphereGeometry(0.5 * b.size, 18, 14), emissive(0x0d1830, b.col, 2.6));
-    holder.add(mesh);
-    // An invisible, generous hit target. The orbs themselves are too small
-    // to ask anyone to hit with a cursor.
-    const hit = new THREE.Mesh(
-      new THREE.SphereGeometry(1.7, 10, 8),
-      new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false })
-    );
-    hit.userData.orbIndex = i;
-    holder.add(hit);
-    const gl = glow(b.col, 1.6 * b.size, 0.22 * b.size);
-    holder.add(gl);
-    const lb = label(o.label, { color: b.ink, px: 36, height: 0.66 * (b.size < 1 ? 0.86 : 1) });
-    lb.position.set(0, 1.1, 0);
-    holder.add(lb);
-    g.add(holder);
-
-    const rec = {
-      holder, mesh, hit, gl, lb,
-      band: o.ring,
-      lat: b.lat,
-      lon0: (idx / counts[o.ring]) * Math.PI * 2 + o.ring * 0.42,
-      index: i
-    };
-    orbs.push(rec);
-    bandRows[o.ring].push(rec);
-  });
-
-  // Each band is drawn as its own closed loop, so the grouping is legible
-  // instead of eighteen spokes radiating out of the middle.
-  const linkPairs = [];
-  const linkPts = [];
-  bandRows.forEach((row) => {
-    row.forEach((rec, k) => {
-      linkPairs.push([rec, row[(k + 1) % row.length]]);
-      linkPts.push(new THREE.Vector3(), new THREE.Vector3());
-    });
-  });
-  const linkGeo = new THREE.BufferGeometry().setFromPoints(linkPts);
-  const links = new THREE.LineSegments(linkGeo, new THREE.LineBasicMaterial({
-    color: C.blueSoft, transparent: true, opacity: 0.14
-  }));
-  g.add(links);
-  const linkPos = linkGeo.attributes.position;
-
-  const motes = dust(Math.round(q.particles * 0.7), { x: 44, y: 32, z: 44 }, C.blueSoft, 0.07);
+  const motes = dust(Math.round(q.particles * 0.7), { x: 44, y: 32, z: 44 }, C.blueSoft, 0.06);
   g.add(motes);
 
-  g.userData.orbs = orbs;
   g.userData.tick = ({ t, p }) => {
-    core.rotation.y = t * 0.15;
-    core.rotation.x = t * 0.08;
-
-    const settle = smoothstep(0.18, 0.4, p);
-    const grow = 0.35 + settle * 0.65;
-    const deep = 1 + (1 - settle) * 2.2;
-
-    orbs.forEach((o) => {
-      const lon = o.lon0 + t * (0.085 + o.band * 0.004) + (1 - settle) * 1.5;
-      const r = R * Math.cos(o.lat) * grow;
-      const x = Math.cos(lon) * r;
-      const z = Math.sin(lon) * r * deep;
-      const y = R * Math.sin(o.lat) * grow;
-      o.holder.position.set(x, y, z);
-
-      // What is swinging toward you is bright and large; what has gone round
-      // the back fades away. This is what keeps eighteen labels from piling
-      // up on each other, and it gives the sphere real depth.
-      const face = smoothstep(-r * 0.6, r * 0.45, z);
-      o.holder.scale.setScalar((0.8 + face * 0.34) * (0.45 + settle * 0.55));
-      o.lb.material.opacity = (0.06 + face * 0.94) * settle;
-      o.gl.material.opacity = (0.16 + face * 0.34) * settle;
-      o.mesh.material.emissiveIntensity = 0.9 + face * 0.9;
-    });
-
-    linkPairs.forEach((pair, k) => {
-      const a = pair[0].holder.position;
-      const b = pair[1].holder.position;
-      linkPos.setXYZ(k * 2, a.x, a.y, a.z);
-      linkPos.setXYZ(k * 2 + 1, b.x, b.y, b.z);
-    });
-    linkPos.needsUpdate = true;
-    links.material.opacity = 0.15 * settle;
+    const settle = smoothstep(0.18, 0.44, p);
+    shell.rotation.y = t * 0.035;
+    shell.rotation.x = t * 0.016;
+    inner.rotation.y = -t * 0.07;
+    inner.rotation.z = t * 0.03;
+    shell.material.opacity = 0.075 * settle;
+    inner.material.opacity = 0.1 * settle;
+    const s = 0.8 + settle * 0.2;
+    shell.scale.setScalar(s);
+    inner.scale.setScalar(s);
     motes.rotation.y = -t * 0.012;
   };
   return g;
@@ -1470,9 +1383,6 @@ export function buildWorld(q) {
     certifications: certsZone(q),
     contact: finaleZone(q)
   };
-  /* Real shadows need casters and receivers flagged. Walk every zone once:
-     solid meshes cast and receive; sprites, lines, points, glow planes and
-     transparent FX are skipped so they never punch holes in the shadow map. */
   for (const id in zones) {
     zones[id].traverse((o) => {
       if (!o.isMesh) return;
