@@ -10,7 +10,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { buildWorld, C, smoothstep } from './scene.js';
-import { SKILL_GROUPS, ORBS } from './content.js';
+import { SKILL_GROUPS } from './content.js';
 
 /* Cinematic grade: subtle vignette + animated film grain + slight chromatic
    warmth. Applied after bloom so it reads as a lens, not as scene content. */
@@ -21,25 +21,22 @@ const GradeShader = {
     uVignette: { value: 0.42 },
     uGrain: { value: 0.028 }
   },
-  vertexShader: /* glsl */`
+  vertexShader: `
     varying vec2 vUv;
     void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }
   `,
-  fragmentShader: /* glsl */`
+  fragmentShader: `
     uniform sampler2D tDiffuse;
     uniform float uTime, uVignette, uGrain;
     varying vec2 vUv;
     float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
     void main() {
       vec4 c = texture2D(tDiffuse, vUv);
-      // vignette
       vec2 d = vUv - 0.5;
       float v = smoothstep(0.85, 0.25, length(d) * (1.0 + uVignette));
       c.rgb *= mix(1.0 - uVignette * 0.55, 1.0, v);
-      // animated grain
       float g = hash(vUv * (300.0 + fract(uTime) * 7.0) + fract(uTime) * 91.7) - 0.5;
       c.rgb += g * uGrain;
-      // faint warm lift in the shadows for a filmic feel
       c.rgb += vec3(0.012, 0.006, -0.004) * (1.0 - v);
       gl_FragColor = c;
     }
@@ -52,7 +49,6 @@ const loaderFill = document.getElementById('loader-fill');
 const loaderPct = document.getElementById('loader-pct');
 const progressFill = document.getElementById('progress-fill');
 const chapterLabel = document.getElementById('chapter-label');
-const orbTip = document.getElementById('orb-tip');
 const motionBtn = document.getElementById('motion-toggle');
 
 const CHAPTERS = {
@@ -146,8 +142,6 @@ function start() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.18;
-  /* Real shadow maps. One 2048px cascade on the key light is enough to ground
-     every hero object; the blob shadows stay as cheap contact darkening. */
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
@@ -193,18 +187,13 @@ function start() {
   const camera = new THREE.PerspectiveCamera(52, window.innerWidth / window.innerHeight, 0.1, 600);
   camera.position.set(-6, 1.5, 15);
 
-  /* ---------- cinematic post pipeline ----------
-     Render -> Bloom (glow that bleeds like a real lens) -> Film grade
-     (vignette + grain) -> Output (tone map + sRGB). Bloom is kept subtle;
-     the scene already has additive glow sprites, so this only lifts the
-     hottest highlights. On mobile the bloom runs at half res. */
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
   const bloom = new UnrealBloomPass(
     new THREE.Vector2(window.innerWidth, window.innerHeight),
-    0.12,   // strength — whisper, not shout; the scene has its own glows
-    0.5,    // radius
-    0.92    // threshold — only near-white highlights bloom
+    0.12,
+    0.5,
+    0.92
   );
   if (isMobile) bloom.resolution.set(window.innerWidth / 2, window.innerHeight / 2);
   composer.addPass(bloom);
@@ -234,8 +223,6 @@ function start() {
   const hemi = new THREE.HemisphereLight(0x7c97cc, 0x12182a, 0.7);
   const key = new THREE.DirectionalLight(0xcfe0ff, 0.85);
   key.position.set(8, 20, 12);
-  /* The key light now casts real shadows. Tight frustum around the action so
-     the 2048px map stays crisp; bias tuned so thin geometry doesn't acne. */
   key.castShadow = true;
   key.shadow.mapSize.set(isMobile ? 1024 : 2048, isMobile ? 1024 : 2048);
   key.shadow.camera.near = 1;
@@ -567,71 +554,6 @@ function start() {
     });
   }
 
-  /* ---------- orb interaction ---------- */
-  const ray = new THREE.Raycaster();
-  const pointer = new THREE.Vector2(-5, -5);
-  let hovered = -1;
-  let pointerLive = false;
-
-  // The overlay sits above the canvas, so pointer events are read from the
-  // window rather than from the canvas itself.
-  window.addEventListener('pointermove', (e) => {
-    pointer.set((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1);
-    pointerLive = true;
-  }, { passive: true });
-  window.addEventListener('pointerdown', (e) => {
-    pointer.set((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1);
-    pointerLive = true;
-  }, { passive: true });
-  document.addEventListener('pointerleave', () => { pointerLive = false; });
-
-  function clearHover() {
-    if (hovered !== -1) {
-      orbTip.classList.remove('on');
-      document.querySelectorAll('.skill-group li.lit').forEach((li) => li.classList.remove('lit'));
-      hovered = -1;
-    }
-  }
-
-  function normalize(s) { return s.toLowerCase().replace(/[^a-z0-9]/g, ''); }
-
-  function setHover(index, screenX, screenY) {
-    if (index === hovered) {
-      orbTip.style.left = screenX + 'px';
-      orbTip.style.top = screenY + 'px';
-      return;
-    }
-    clearHover();
-    hovered = index;
-    const o = ORBS[index];
-    orbTip.querySelector('strong').textContent = o.label;
-    orbTip.querySelector('span').textContent = o.note;
-    orbTip.style.left = screenX + 'px';
-    orbTip.style.top = screenY + 'px';
-    orbTip.classList.add('on');
-    const want = normalize(o.label);
-    document.querySelectorAll('.skill-group li').forEach((li) => {
-      if (normalize(li.textContent) === want) li.classList.add('lit');
-    });
-  }
-
-  const projected = new THREE.Vector3();
-
-  function pickOrbs() {
-    const sk = zones.skills;
-    if (!sk || !sk.visible || !pointerLive || SECTIONS[activeIndex].id !== 'skills') { clearHover(); return; }
-    ray.setFromCamera(pointer, camera);
-    const meshes = sk.userData.orbs.map((o) => o.hit);
-    const hit = ray.intersectObjects(meshes, false)[0];
-    if (!hit) { clearHover(); return; }
-    const idx = hit.object.userData.orbIndex;
-    hit.object.getWorldPosition(projected);
-    projected.project(camera);
-    setHover(idx,
-      (projected.x * 0.5 + 0.5) * window.innerWidth,
-      (-projected.y * 0.5 + 0.5) * window.innerHeight);
-  }
-
   /* ---------- the loop ---------- */
   let running = false;
   let last = performance.now();
@@ -734,7 +656,6 @@ function start() {
     }
 
     handOverTitle(sec, p);
-    pickOrbs();
 
     progressFill.style.width = (y / maxScroll * 100).toFixed(2) + '%';
     const ch = CHAPTERS[sec.id];
