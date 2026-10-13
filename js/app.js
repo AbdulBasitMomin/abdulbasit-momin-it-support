@@ -4,8 +4,47 @@
    ------------------------------------------------------------------ */
 
 import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { buildWorld, C, smoothstep } from './scene.js';
 import { SKILL_GROUPS, ORBS } from './content.js';
+
+/* Cinematic grade: subtle vignette + animated film grain + slight chromatic
+   warmth. Applied after bloom so it reads as a lens, not as scene content. */
+const GradeShader = {
+  uniforms: {
+    tDiffuse: { value: null },
+    uTime: { value: 0 },
+    uVignette: { value: 0.42 },
+    uGrain: { value: 0.028 }
+  },
+  vertexShader: /* glsl */`
+    varying vec2 vUv;
+    void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }
+  `,
+  fragmentShader: /* glsl */`
+    uniform sampler2D tDiffuse;
+    uniform float uTime, uVignette, uGrain;
+    varying vec2 vUv;
+    float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+    void main() {
+      vec4 c = texture2D(tDiffuse, vUv);
+      // vignette
+      vec2 d = vUv - 0.5;
+      float v = smoothstep(0.85, 0.25, length(d) * (1.0 + uVignette));
+      c.rgb *= mix(1.0 - uVignette * 0.55, 1.0, v);
+      // animated grain
+      float g = hash(vUv * (300.0 + fract(uTime) * 7.0) + fract(uTime) * 91.7) - 0.5;
+      c.rgb += g * uGrain;
+      // faint warm lift in the shadows for a filmic feel
+      c.rgb += vec3(0.012, 0.006, -0.004) * (1.0 - v);
+      gl_FragColor = c;
+    }
+  `
+};
 
 const body = document.body;
 const loader = document.getElementById('loader');
@@ -107,6 +146,10 @@ function start() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.18;
+  /* Real shadow maps. One 2048px cascade on the key light is enough to ground
+     every hero object; the blob shadows stay as cheap contact darkening. */
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
   const scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2(C.bg, 0.0085);
@@ -150,6 +193,25 @@ function start() {
   const camera = new THREE.PerspectiveCamera(52, window.innerWidth / window.innerHeight, 0.1, 600);
   camera.position.set(-6, 1.5, 15);
 
+  /* ---------- cinematic post pipeline ----------
+     Render -> Bloom (glow that bleeds like a real lens) -> Film grade
+     (vignette + grain) -> Output (tone map + sRGB). Bloom is kept subtle;
+     the scene already has additive glow sprites, so this only lifts the
+     hottest highlights. On mobile the bloom runs at half res. */
+  const composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  const bloom = new UnrealBloomPass(
+    new THREE.Vector2(window.innerWidth, window.innerHeight),
+    0.32,   // strength
+    0.65,   // radius
+    0.82    // threshold — only the hottest pixels bloom
+  );
+  if (isMobile) bloom.resolution.set(window.innerWidth / 2, window.innerHeight / 2);
+  composer.addPass(bloom);
+  const grade = new ShaderPass(GradeShader);
+  composer.addPass(grade);
+  composer.addPass(new OutputPass());
+
   /* Three keeps the vertical field fixed, so a portrait phone ends up with a
      very narrow horizontal one and the scenes get cropped down the middle.
      Opening the vertical field back up on tall screens keeps roughly the same
@@ -172,6 +234,18 @@ function start() {
   const hemi = new THREE.HemisphereLight(0x7c97cc, 0x12182a, 0.7);
   const key = new THREE.DirectionalLight(0xcfe0ff, 0.85);
   key.position.set(8, 20, 12);
+  /* The key light now casts real shadows. Tight frustum around the action so
+     the 2048px map stays crisp; bias tuned so thin geometry doesn't acne. */
+  key.castShadow = true;
+  key.shadow.mapSize.set(isMobile ? 1024 : 2048, isMobile ? 1024 : 2048);
+  key.shadow.camera.near = 1;
+  key.shadow.camera.far = 120;
+  key.shadow.camera.left = -40;
+  key.shadow.camera.right = 40;
+  key.shadow.camera.top = 40;
+  key.shadow.camera.bottom = -40;
+  key.shadow.bias = -0.0004;
+  key.shadow.normalBias = 0.02;
   scene.add(ambient, hemi, key);
   const pts = [];
   for (let i = 0; i < 4; i++) {
@@ -666,7 +740,8 @@ function start() {
     const ch = CHAPTERS[sec.id];
     if (ch !== lastChapter) { chapterLabel.textContent = ch; lastChapter = ch; }
 
-    renderer.render(scene, camera);
+    grade.uniforms.uTime.value = t;
+    composer.render();
     requestAnimationFrame(frame);
   }
 
@@ -690,6 +765,8 @@ function start() {
     applyLens();
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
+    composer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2));
+    composer.setSize(window.innerWidth, window.innerHeight);
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(measure, 160);
   });
