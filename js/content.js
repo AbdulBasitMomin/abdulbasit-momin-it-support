@@ -1,1 +1,42 @@
-LyogU2luZ2xlIHNvdXJjZSBvZiB0cnV0aCBmb3Igc2tpbGwgZGF0YS4KICAgRXZlcnkgZW50cnkgYmVsb3cgY29tZXMgc3RyYWlnaHQgb2ZmIHRoZSByZXN1bWUuIE5vdGhpbmcgYWRkZWQuICovCgpleHBvcnQgY29uc3QgU0tJTExfR1JPVVBTID0gWwogIHsgc2xvdDogJ3NnLW9zJywgaXRlbXM6IFsnV2luZG93cycsICdtYWNPUycsICdMaW51eCcsICdBbmRyb2lkJywgJ2lPUyddIH0sCiAgeyBzbG90OiAnc2ctbmV0JywgaXRlbXM6IFsnVENQL0lQJywgJ0ROUycsICdESENQJywgJ1ZQTiBiYXNpY3MnLCAnV2ktRmkgdHJvdWJsZXNob290aW5nJ10gfSwKICB7IHNsb3Q6ICdzZy10b29scycsIGl0ZW1zOiBbJ01pY3Jvc29mdCAzNjUnLCAnR29vZ2xlIFdvcmtzcGFjZScsICdKaXJhJywgJ0NvbmZsdWVuY2UnLCAnQWN0aXZlIERpcmVjdG9yeScsICdSZW1vdGUgRGVza3RvcCddIH0sCiAgeyBzbG90OiAnc2ctc3VwcG9ydCcsIGl0ZW1zOiBbJ0hhcmR3YXJlIHRyb3VibGVzaG9vdGluZycsICdTb2Z0d2FyZSBpbnN0YWxsYXRpb24nLCAnUHJpbnRlciBzdXBwb3J0JywgJ1RpY2tldCB0cmlhZ2luZycsICdVc2VyIGFjY291bnQgbWFuYWdlbWVudCcsICdEb2N1bWVudGF0aW9uJ10gfSwKICB7IHNsb3Q6ICdzZy1kYXRhJywgaXRlbXM6IFsnU1FMJywgJ1Bvd2VyIEJJJywgJ0V4Y2VsJywgJ1B5dGhvbiAoYmVnaW5uZXIpJ10gfSwKICB7IHNsb3Q6ICdzZy1zb2Z0JywgaXRlbXM6IFsnUHJvYmxlbSBzb2x2aW5nJywgJ0NyaXRpY2FsIHRoaW5raW5nJywgJ0NsZWFyIGNvbW11bmljYXRpb24nLCAnQ29uZmxpY3QgcmVzb2x1dGlvbicsICdUaW1lIG1hbmFnZW1lbnQnLCAnRGV0YWlsIG9yaWVudGVkJ10gfSwKICB7IHNsb3Q6ICdzZy1mYW1pbGlhcicsIGl0ZW1zOiBbJ1NlcnZpY2VOb3cnLCAnRW50cmEgSUQgKEF6dXJlIEFEKScsICdPa3RhJ10gfQpdOwoKLyogVGhlIDE4IG9yYnMgaW4gdGhlIGNvbnN0ZWxsYXRpb24uIGBub3RlYCBzaG93cyBvbiBob3ZlciBvciB0YXAuICovCmV4cG9ydCBjb25zdCBPUkJTID0gWwogIHsgbGFiZWw6ICdXaW5kb3dzJywgcmluZzogMCwgbm90ZTogJ0RhaWx5IGRyaXZlci4gU2V0dXAsIGNvbmZpZ3VyYXRpb24gYW5kIHRoZSBmYXVsdCBmaW5kaW5nIHRoYXQgZm9sbG93cy4nIH0sCiAgeyBsYWJlbDogJ0xpbnV4JywgcmluZzogMCwgbm90ZTogJ0Rpc2sgcGFydGl0aW9ucyBhbmQgZmlsZXN5c3RlbXMsIHByYWN0aXNlZCBpbiB0aGUgTlBvd2VyIHByb2dyYW0uJyB9LAogIHsgbGFiZWw6ICdtYWNPUycsIHJpbmc6IDAsIG5vdGU6ICdTdXBwb3J0ZWQgYWxvbmdzaWRlIFdpbmRvd3MgZm9yIG1peGVkIGZsZWV0cy4nIH0sCiAgeyBsYWJlbDogJ0FuZHJvaWQgLyBpT1MnLCByaW5nOiAwLCBub3RlOiAnTW9iaWxlIGRldmljZSBzdXBwb3J0IGZvciB0aGUgdXNlcnMgd2hvIGxpdmUgb24gdGhlaXIgcGhvbmUuJyB9LAogIHsgbGFiZWw6ICdUQ1AvSVAnLCByaW5nOiAxLCBub3RlOiAnSG93IHRoZSB0cmFmZmljIGFjdHVhbGx5IG1vdmVzLCBhbmQgd2hlcmUgaXQgc3RvcHMgbW92aW5nLicgfSwKICB7IGxhYmVsOiAnRE5TJywgcmluZzogMSwgbm90ZTogJ0l0IGlzIHVzdWFsbHkgRE5TLiBSZXNvbHV0aW9uIGNoZWNrcyBjb21lIGZpcnN0LicgfSwKICB7IGxhYmVsOiAnREhDUCcsIHJpbmc6IDEsIG5vdGU6ICdBZGRyZXNzIGFzc2lnbm1lbnQsIGxlYXNlcyBhbmQgdGhlIG5vIG5ldHdvcmsgY29tcGxhaW50LicgfSwKICB7IGxhYmVsOiAnVlBOIGJhc2ljcycsIHJpbmc6IDEsIG5vdGU6ICdSZW1vdGUgYWNjZXNzIHRyb3VibGVzaG9vdGluZyBmb3IgcGVvcGxlIHdvcmtpbmcgb2ZmIHNpdGUuJyB9LAogIHsgbGFiZWw6ICdXaS1GaScsIHJpbmc6IDEsIG5vdGU6ICdTaWduYWwsIGF1dGhlbnRpY2F0aW9uIGFuZCB0aGUgZGlmZmVyZW5jZSBiZXR3ZWVuIHNsb3cgYW5kIGJyb2tlbi4nIH0sCiAgeyBsYWJlbDogJ0FjdGl2ZSBEaXJlY3RvcnknLCByaW5nOiAyLCBub3RlOiAnVXNlciBhY2NvdW50cywgYWNjZXNzIGFuZCBwYXNzd29yZCByZXNldHMuIE9wZW5MREFQIHRvby4nIH0sCiAgeyBsYWJlbDogJ01pY3Jvc29mdCAzNjUnLCByaW5nOiAyLCBub3RlOiAnQWNjb3VudHMsIGxpY2Vuc2luZyBxdWVzdGlvbnMgYW5kIHRoZSBPZmZpY2UgYXBwcyBldmVyeW9uZSBkZXBlbmRzIG9uLicgfSwKICB7IGxhYmVsOiAnSmlyYScsIHJpbmc6IDIsIG5vdGU6ICdUcmlhZ2UsIHRyYWNrIGFuZCByZXNvbHZlLiBGb3VyIHllYXJzIG9mIGxpdmluZyBpbiBhIHRpY2tldCBxdWV1ZS4nIH0sCiAgeyBsYWJlbDogJ0NvbmZsdWVuY2UnLCByaW5nOiAyLCBub3RlOiAnV2hlcmUgdGhlIGRvY3VtZW50YXRpb24gbGl2ZXMgc28gdGhlIGFuc3dlciBpcyBmaW5kYWJsZSBuZXh0IHRpbWUuJyB9LAogIHsgbGFiZWw6ICdSZW1vdGUgRGVza3RvcCcsIHJpbmc6IDIsIG5vdGU6ICdGaXhpbmcgdGhlIG1hY2hpbmUgd2l0aG91dCBzdGFuZGluZyBvdmVyIGl0LicgfSwKICB7IGxhYmVsOiAnUG93ZXIgQkknLCByaW5nOiAzLCBub3RlOiAnQnVpbHQgOCBkYXNoYm9hcmRzIGF0IFNhcmplbiwgaW1wcm92aW5nIHJlcG9ydGluZyBlZmZpY2llbmN5IGJ5IGFib3V0IDIwIHBlcmNlbnQuJyB9LAogIHsgbGFiZWw6ICdTUUwnLCByaW5nOiAzLCBub3RlOiAnUXVlcnkgdGhlIGRhdGEgaW5zdGVhZCBvZiBndWVzc2luZyBhdCBpdC4nIH0sCiAgeyBsYWJlbDogJ0RvY3VtZW50YXRpb24nLCByaW5nOiAzLCBub3RlOiAnUmVwbGljYXRpb24gc3RlcHMsIHVzZXIgZ3VpZGVzIGFuZCByZWxlYXNlIG5vdGVzIHBlb3BsZSBhY3R1YWxseSByZWFkLicgfSwKICB7IGxhYmVsOiAnVGlja2V0IHRyaWFnZScsIHJpbmc6IDMsIG5vdGU6ICdEZWNpZGUgd2hhdCBpcyB1cmdlbnQsIHNheSBzbyBjbGVhcmx5LCBlc2NhbGF0ZSB3aXRob3V0IGRyYW1hLicgfSwKICB7IGxhYmVsOiAnU2VydmljZU5vdycsIHJpbmc6IDQsIG5vdGU6ICdFbnRlcnByaXNlIHRpY2tldGluZy4gRmFtaWxpYXIgd2l0aCBpdDsgSmlyYSBhbmQgQ29uZmx1ZW5jZSBhcmUgd2hlcmUgdGhlIGhvdXJzIGFyZS4nIH0sCiAgeyBsYWJlbDogJ0VudHJhIElEJywgcmluZzogNCwgbm90ZTogJ0Nsb3VkIGlkZW50aXR5LiBUaGUgc2FtZSBhY2NvdW50cyBhbmQgYWNjZXNzIHdvcmsgYXMgQWN0aXZlIERpcmVjdG9yeSwgd2hpY2ggSSBrbm93IGJldHRlci4nIH0sCiAgeyBsYWJlbDogJ09rdGEnLCByaW5nOiA0LCBub3RlOiAnU2luZ2xlIHNpZ24gb24gYW5kIGFjY2Vzcy4gRmFtaWxpYXIgd2l0aCBpdCwgbm90IHlldCBkYXkgdG8gZGF5LicgfQpdOwoKLyogU2hvcnQgbGFiZWxzIGZsb2F0aW5nIGJlc2lkZSB0aGUgcm9hZCBtYXJrZXJzIGluIHRoZSBleHBlcmllbmNlIHNjZW5lLiAqLwpleHBvcnQgY29uc3QgTUlMRVNUT05FX1RBR1MgPSBbJ01lcmNvcicsICdOUG93ZXIgQ2FuYWRhJywgJ0JvZHlXZWxsbmVzc0FJJywgJ1NhcmplbicsICdCLkUuIElUJ107CgpleHBvcnQgY29uc3QgQ0VSVF9UQUdTID0gWydDb21wVElBIEErJywgJ0dvb2dsZSBJVCBTdXBwb3J0JywgJ0dvb2dsZSBBSSBFc3NlbnRpYWxzJ107Cg==
+/* Single source of truth for skill data.
+   Every entry below comes straight off the resume. Nothing added. */
+
+export const SKILL_GROUPS = [
+  { slot: 'sg-os', items: ['Windows', 'macOS', 'Linux', 'Android', 'iOS'] },
+  { slot: 'sg-net', items: ['TCP/IP', 'DNS', 'DHCP', 'VPN basics', 'Wi-Fi troubleshooting'] },
+  { slot: 'sg-tools', items: ['Microsoft 365', 'Google Workspace', 'Jira', 'Confluence', 'Active Directory', 'Remote Desktop'] },
+  { slot: 'sg-support', items: ['Hardware troubleshooting', 'Software installation', 'Printer support', 'Ticket triaging', 'User account management', 'Documentation'] },
+  { slot: 'sg-data', items: ['SQL', 'Power BI', 'Excel', 'Python (beginner)'] },
+  { slot: 'sg-soft', items: ['Problem solving', 'Critical thinking', 'Clear communication', 'Conflict resolution', 'Time management', 'Detail oriented'] },
+  { slot: 'sg-familiar', items: ['ServiceNow', 'Entra ID (Azure AD)', 'Okta'] }
+];
+
+/* The 18 orbs in the constellation. `note` shows on hover or tap. */
+export const ORBS = [
+  { label: 'Windows', ring: 0, note: 'Daily driver. Setup, configuration and the fault finding that follows.' },
+  { label: 'Linux', ring: 0, note: 'Disk partitions and filesystems, practised in the NPower program.' },
+  { label: 'macOS', ring: 0, note: 'Supported alongside Windows for mixed fleets.' },
+  { label: 'Android / iOS', ring: 0, note: 'Mobile device support for the users who live on their phone.' },
+  { label: 'TCP/IP', ring: 1, note: 'How the traffic actually moves, and where it stops moving.' },
+  { label: 'DNS', ring: 1, note: 'It is usually DNS. Resolution checks come first.' },
+  { label: 'DHCP', ring: 1, note: 'Address assignment, leases and the no network complaint.' },
+  { label: 'VPN basics', ring: 1, note: 'Remote access troubleshooting for people working off site.' },
+  { label: 'Wi-Fi', ring: 1, note: 'Signal, authentication and the difference between slow and broken.' },
+  { label: 'Active Directory', ring: 2, note: 'User accounts, access and password resets. OpenLDAP too.' },
+  { label: 'Microsoft 365', ring: 2, note: 'Accounts, licensing questions and the Office apps everyone depends on.' },
+  { label: 'Jira', ring: 2, note: 'Triage, track and resolve. Four years of living in a ticket queue.' },
+  { label: 'Confluence', ring: 2, note: 'Where the documentation lives so the answer is findable next time.' },
+  { label: 'Remote Desktop', ring: 2, note: 'Fixing the machine without standing over it.' },
+  { label: 'Power BI', ring: 3, note: 'Built 8 dashboards at Sarjen, improving reporting efficiency by about 20 percent.' },
+  { label: 'SQL', ring: 3, note: 'Query the data instead of guessing at it.' },
+  { label: 'Documentation', ring: 3, note: 'Replication steps, user guides and release notes people actually read.' },
+  { label: 'Ticket triage', ring: 3, note: 'Decide what is urgent, say so clearly, escalate without drama.' },
+  { label: 'ServiceNow', ring: 4, note: 'Enterprise ticketing. Familiar with it; Jira and Confluence are where the hours are.' },
+  { label: 'Entra ID', ring: 4, note: 'Cloud identity. The same accounts and access work as Active Directory, which I know better.' },
+  { label: 'Okta', ring: 4, note: 'Single sign on and access. Familiar with it, not yet day to day.' }
+];
+
+/* Short labels floating beside the road markers in the experience scene. */
+export const MILESTONE_TAGS = ['Mercor', 'NPower Canada', 'BodyWellnessAI', 'Sarjen', 'B.E. IT'];
+
+export const CERT_TAGS = ['CompTIA A+', 'Google IT Support', 'Google AI Essentials'];
